@@ -1,0 +1,1 @@
+![trie](./img/trie.jpg)
