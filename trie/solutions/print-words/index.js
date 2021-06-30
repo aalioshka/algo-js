@@ -29,6 +29,25 @@ function Trie() {
         }
         return !!(node.keys[word] && node.keys[word].end);
     };
+
+    this.print = function() {
+        let words = [];
+        let search = function(node, string) {
+            const keys = Object.keys(node.keys);
+            if (keys.length) {
+                keys.forEach(key => {
+                    search(node.keys[key], string + key);
+                });
+                if (node.end) {
+                    words.push(string);
+                }
+            } else {
+                string.length > 0 ? words.push(string) : undefined;
+            }
+        };
+        search(this.root, '');
+        return words;
+    };
 }
 
 let myTrie = new Trie();
@@ -44,3 +63,4 @@ console.log(myTrie.search('doll'));
 console.log(myTrie.search('dog'));
 console.log(myTrie.search('sense'));
 console.log(myTrie.search('boll'));
+console.log(myTrie.print());
