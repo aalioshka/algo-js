@@ -31,10 +31,3 @@ function simpleBubbleSort(arr){
     }
     return arr;
 }
-
-
-
-module.exports = {
-    bubbleSort,
-    simpleBubbleSort
-};
