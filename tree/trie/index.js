@@ -9,10 +9,10 @@ function Trie() {
     this.insert = function(input, node = this.root) {
         if (!input.length) {
             node.end = true;
-        } else if (!node.keys[input[0]]) {
-            node.keys[input[0]] = new Node();
-            this.insert(input.substring(1), node.keys[input[0]]);
         } else {
+            if (!node.keys[input[0]]) {
+                node.keys[input[0]] = new Node();
+            }
             this.insert(input.substring(1), node.keys[input[0]]);
         }
     };
