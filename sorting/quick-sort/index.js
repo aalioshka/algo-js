@@ -1,5 +1,3 @@
-'use strict';
-
 function quickSort(nums) {
     if (nums.length < 2) {
         return nums;
