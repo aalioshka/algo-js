@@ -2,3 +2,4 @@
 * [tree](tree)
 * [trie](trie)
 * [heap](heap)
+* [graph](graph)
