@@ -1,4 +1,5 @@
 * [sorting](sorting)
+* [linked-list](linked-list/index.js)
 * [tree](tree)
 * [trie](trie)
 * [heap](heap)
