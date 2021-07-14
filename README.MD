@@ -1,5 +1,6 @@
 * [sorting](sorting)
 * [linked-list](linked-list/index.js)
+* [doubly-list](linked-list/doubly-linked-list/index.js)
 * [tree](tree)
 * [trie](trie)
 * [heap](heap)
