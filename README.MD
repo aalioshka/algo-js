@@ -1,5 +1,7 @@
 * [sorting](sorting)
 * [linked-list](linked-list/index.js)
+  * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
+  * [merge-k-sorted-lists](linked-list/solutions/merge-k-sorted-lists/index.js)
 * [doubly-list](linked-list/doubly-linked-list/index.js)
 * [tree](tree)
 * [trie](trie)
