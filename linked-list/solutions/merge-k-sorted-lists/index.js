@@ -30,20 +30,25 @@ var mergeKLists = function(lists) {
 
 // https://leetcode.com/problems/merge-two-sorted-lists/
 function mergeTwoLists(l1, l2) {
-    let mergedHead = { val : -1, next : null }; // set dummy value to the head
-    let pointer = mergedHead;
-    while(l1 && l2) {
-        if(l1.val < l2.val) {
-            pointer.next = l1;
+    let dummyHead = {
+        val: -1,
+        next: null
+    }
+
+    let current = dummyHead
+
+    while(l1 && l2){
+        if(l1.val < l2.val){
+            current.next = l1;
             l1 = l1.next;
         } else {
-            pointer.next = l2;
+            current.next = l2;
             l2 = l2.next;
         }
-        pointer = pointer.next;
+        current = current.next
     }
-    pointer.next = l1 || l2; // length of the l1 and l2 can be different
-                             // we assign the rest to pointer.next
 
-    return mergedHead.next;
-};
+    current.next = l1 || l2;
+
+    return dummyHead.next;
+}
