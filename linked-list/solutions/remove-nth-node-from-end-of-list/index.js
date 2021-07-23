@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/discuss/1358175/javascript-two-pointers-slow-fast-solution-with-comments
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
