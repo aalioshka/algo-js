@@ -36,10 +36,14 @@ var removeNthFromEnd = function(head, n) {
     1 -> 2 -> 3 -> 4 -> X -> 6 -> 7 -> 8 
     */
 
-    let dummy = new ListNode(null); // use dummy to handle removing head edge case (input: [1] , 1)
-    dummy.next = head;
-    let fast = dummy;
-    let slow = dummy;
+    // use dummy head to handle removing head edge case (input: [1] , 1)
+    let dummyHead = {
+        val: -1,
+        next: head
+    };
+
+    let fast = dummyHead;
+    let slow = dummyHead;
 
     // Move fast n + 1 nodes ahead of slow
     for (let i = 0; i < n + 1; i++) {
@@ -54,5 +58,5 @@ var removeNthFromEnd = function(head, n) {
 
     // Remove the nth from last node
     slow.next = slow.next.next;
-    return dummy.next;
+    return dummyHead.next;
 };
