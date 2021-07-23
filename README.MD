@@ -2,9 +2,11 @@
 * [linked-list](linked-list/index.js)
   * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
   * [merge-k-sorted-lists](linked-list/solutions/merge-k-sorted-lists/index.js)
-  * [linked-list-cycle](linked-list/solutions/linked-list-cycle/index.js)
-  * [middle-of-the-linked-list](linked-list/solutions/middle-of-the-linked-list/index.js)  
   * [reverse-linked-list](linked-list/solutions/reverse-linked-list/index.js)
+  * Two pointers(slow, fast):
+      * [linked-list-cycle](linked-list/solutions/linked-list-cycle/index.js)
+      * [middle-of-the-linked-list](linked-list/solutions/middle-of-the-linked-list/index.js)
+      * [remove-nth-node-from-end-of-list](linked-list/solutions/remove-nth-node-from-end-of-list/index.js)
 * [doubly-list](linked-list/doubly-linked-list/index.js)
 * [tree](tree)
 * [trie](trie)

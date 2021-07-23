@@ -11,40 +11,48 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
-    // 1: Two pass algorithm
-    // let dummy = {next:head};
-    // let len = 0;
-    // let temp = head;
-    // while (temp) {
-    //     len++;
-    //     temp = temp.next;
-    // }
-    // len -= n;
-    // current = dummy;
-    // while(len > 0){
-    //     len--;
-    //     current = current.next;
-    // }
-    // current.next = current.next.next;
-    // return dummy.next;
+    /*
+    n = 4
+    
+    p1(fast)
+    p2(slow)
+    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+    
+                            p1 (n + 1)
+    p2
+    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+    
+                                  p1
+         p2
+    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8    
+    
+    .....
+    
+                                          p1
+                   p2
+    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8  null 
+    
+    
+    1 -> 2 -> 3 -> 4 -> X -> 6 -> 7 -> 8 
+    */
 
-    // 2: One pass
-    let dummy = {next:head};
+    let dummy = new ListNode(null); // use dummy to handle removing head edge case (input: [1] , 1)
+    dummy.next = head;
+    let fast = dummy;
     let slow = dummy;
-    let fast = head;
 
-
-    while(n > 1) {
+    // Move fast n + 1 nodes ahead of slow
+    for (let i = 0; i < n + 1; i++) {
         fast = fast.next;
-        n--;
     }
 
-    while(fast.next){
+    // Move fast to end, slow will be (n + 1)th from last node, just before the node to remove
+    while (fast) {
         fast = fast.next;
         slow = slow.next;
     }
 
+    // Remove the nth from last node
     slow.next = slow.next.next;
-
     return dummy.next;
 };
