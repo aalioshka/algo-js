@@ -107,7 +107,6 @@ class Graph{
             currentVertex = queue.shift();
             result.push(currentVertex);
 
-
             this.adjacencyList[currentVertex].forEach(neighbor => {
                 if(!visited[neighbor]){
                     visited[neighbor] = true;

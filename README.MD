@@ -12,3 +12,8 @@
 * [trie](trie)
 * [heap](heap)
 * [graph](graph)
+  * [adjacency list](graph/adjacency-list/index.js)
+    * [Depth First Search Recursive](graph/adjacency-list/depthFirstRecursive.MD)
+    * [Depth First Search Iterative](graph/adjacency-list/depthFirstIterative.MD)
+    * [Breadth First Search](graph/adjacency-list/breadthFirst.MD)
+  * [adjacency matrix](graph/adjacency-matrix/index.js)  
