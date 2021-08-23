@@ -1,3 +1,6 @@
+// Approach 2: Greedy
+// https://leetcode.com/problems/maximum-subarray/discuss/449875/javascript-Approach-2%3A-Greedy
+
 /**
  * @param {number[]} nums
  * @return {number}
