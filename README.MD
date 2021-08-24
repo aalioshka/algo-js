@@ -20,4 +20,5 @@
     * [Depth First Search Iterative](graph/adjacency-list/depthFirstIterative.MD)
     * [Breadth First Search](graph/adjacency-list/breadthFirst.MD)
       * [cheapest flights within k stops](graph/solutions/breadth-first-search/cheapest-flights-within-k-stops/index.js)
+    * [Dijkstra](graph/adjacency-list/dijkstra.js)
   * [adjacency matrix](graph/adjacency-matrix/index.js)  
