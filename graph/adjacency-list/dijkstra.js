@@ -10,7 +10,9 @@ class PriorityQueue {
         return this.values.shift();
     };
     sort() {
-        // mocking priority queue
+        // mocking priority queue with sorting O (N log N)
+        // see the real implementation with O (log N):
+        // https://github.com/Alioshka/algo-js/blob/master/heap/solutions/min-binary-heap-priority-queue.js
         this.values.sort((a, b) => a.priority - b.priority);
     };
 }
