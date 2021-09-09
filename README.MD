@@ -1,3 +1,8 @@
+### Visual
+https://visualgo.net/
+### Big O Cheat Sheet
+https://www.bigocheatsheet.com/
+### Code implementation
 * [sorting](sorting)
 * [linked-list](linked-list/index.js)
   * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
