@@ -13,6 +13,7 @@ https://www.bigocheatsheet.com/
       * [middle-of-the-linked-list](linked-list/solutions/middle-of-the-linked-list/index.js)
       * [remove-nth-node-from-end-of-list](linked-list/solutions/remove-nth-node-from-end-of-list/index.js)
 * [doubly-list](linked-list/doubly-linked-list/index.js)
+  * [lru-cache](linked-list/doubly-linked-list/solutions/lru-cache/index2.js)
 * [tree](tree)
 * [trie](trie)
 * [heap](heap)
