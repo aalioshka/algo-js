@@ -1,145 +1,131 @@
-// Approach 2: Hashmap + DoubleLinkedList https://leetcode.com/problems/lru-cache/discuss/446715/JavaScript-Solution
-/*****************************/
-// DLL implementation
-var Node = function(key, value) {
+// inspired by https://leetcode.com/problems/lru-cache/discuss/617415/JavaScript-2-Solutions-(ES6-Map-vs-Doubly-linked-list)
+
+// Solution 1 - Using ES6 Map
+
+// /**
+//  * @param {number} capacity
+//  */
+// var LRUCache = function(capacity) {
+//     this.map = new Map();
+//     this.capacity = capacity;
+// };
+//
+// /**
+//  * @param {number} key
+//  * @return {number}
+//  */
+// LRUCache.prototype.get = function(key) {
+//     if (!this.map.has(key)) return -1;
+//     const val = this.map.get(key);
+//     this.map.delete(key);
+//     this.map.set(key, val);
+//     return val;
+// };
+//
+// /**
+//  * @param {number} key
+//  * @param {number} value
+//  * @return {void}
+//  */
+// LRUCache.prototype.put = function(key, value) {
+//     this.map.delete(key);
+//     this.map.set(key, value);
+//     if (this.map.size > this.capacity) {
+//         const firstItem = this.map.keys().next().value;
+//         this.map.delete(firstItem);
+//     }
+// };
+//
+// /**
+//  * Your LRUCache object will be instantiated and called as such:
+//  * var obj = new LRUCache(capacity)
+//  * var param_1 = obj.get(key)
+//  * obj.put(key,value)
+//  */
+
+// Solution 2 - Using Object and Doubly linked list
+// Solution 2 - Using Object and Doubly linked list
+function Node(key, val) {
     this.key = key;
-    this.val = value;
-    this.prev = null;
+    this.val = val;
     this.next = null;
+    this.prev = null;
 }
 
-/**
- * DoublyLinkedList Class
- * @constructor initilize head & tail
- * @action insertHead
- * @action removeNode
- * @action moveToHead
- * @action removeTail
- */
-var DoublyLinkedList = function() {
-    this.head = new Node(); // dummy head
-    this.tail = new Node(); // dummy tail
-    this.head.next = this.tail;
-    this.tail.prev = this.head;
-}
+function DoublyLinkedList() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
 
-/**
- * Insert a new node right after head
- * @param {Node} node
- */
-DoublyLinkedList.prototype.insertHead = function(node) {
-    node.prev = this.head;
-    node.next = this.head.next;
-    this.head.next.prev = node;
-    this.head.next = node;
-}
+    this.push = function(key, val) {
+        const newNode = new Node(key, val);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        }
+        this.length++;
+        return newNode;
+    }
 
-/**
- * Remove a node from the linked list
- * @param {Node} node
- */
-DoublyLinkedList.prototype.removeNode = function(node) {
-    let { prev, next } = node;
-    prev.next = next;
-    next.prev = prev;
+    this.remove = function(node) {
+        if(!node.next && !node.prev) { // if there's only 1 node
+            this.head === null;
+            this.tail === null;
+        } else if(!node.next) { // if the node is tail node
+            this.tail = node.prev;
+            this.tail.next = null;
+        } else if(!node.prev) { // if the node is head node
+            this.head = node.next;
+            this.head.prev = null;
+        } else { // if the node is in between
+            const beforeNode = node.prev;
+            const afterNode = node.next;
+            beforeNode.next = afterNode;
+            afterNode.prev = beforeNode;
+        }
+        this.length--;
+    }
 }
-
-/**
- * Move a node to the head
- * @param {Node} node
- */
-DoublyLinkedList.prototype.moveToHead = function(node){
-    this.removeNode(node);
-    this.insertHead(node);
-}
-
-/**
- * Remove the tail element and return its key
- * @return {String}
- */
-DoublyLinkedList.prototype.removeTail = function() {
-    let tail = this.tail.prev;
-    this.removeNode(tail);
-    return tail.key;
-}
-
-/****************************/
-// Solution
 
 /**
  * @param {number} capacity
  */
 var LRUCache = function(capacity) {
+    this.DLL = new DoublyLinkedList();
+    this.cache = {};
     this.capacity = capacity;
-    this.currentSize = 0;
-    this.hash = new Map();
-    this.dll = new DoublyLinkedList();
 };
-
 
 /**
  * @param {number} key
  * @return {number}
  */
 LRUCache.prototype.get = function(key) {
-    let node = this.hash.get(key);
-    if (!node) return -1;
-    this.dll.moveToHead(node);
-    return node.val;
+    if(!this.cache[key]) return -1;
+    const { val } = this.cache[key];
+    this.DLL.remove(this.cache[key]);
+    this.cache[key] = this.DLL.push(key, val);
+    return val;
 };
-
-LRUCache.prototype.put = function(key, value) {
-    let node = this.hash.get(key);
-    if (node==null) { // new node
-        let newNode = new Node(key, value);
-        this.hash.set(key, newNode);
-        this.dll.insertHead(newNode);
-        this.currentSize++;
-        if (this.currentSize > this.capacity) {
-            let tailKey = this.dll.removeTail();
-            this.hash.delete(tailKey);
-            this.currentSize--;
-        }
-    } else { // existed node, update its value and move to head;
-        node.val = value;
-        this.dll.moveToHead(node);
-    }
-};
-
-// Approach 1: Ordered dictionary
-
-// var LRUCache = function(capacity) {
-//     this.cache = new Map();
-//     this.capacity = capacity;
-// };
-
-/**
- * @param {number} key
- * @return {number}
- */
-// LRUCache.prototype.get = function(key) {
-//     if (!this.cache.has(key)) return -1;
-
-//     const v = this.cache.get(key);
-//     this.cache.delete(key);
-//     this.cache.set(key, v);
-//     return this.cache.get(key);
-// };
 
 /**
  * @param {number} key
  * @param {number} value
  * @return {void}
  */
-// LRUCache.prototype.put = function(key, value) {
-//     if (this.cache.has(key)) {
-//       this.cache.delete(key);
-//     }
-//     this.cache.set(key, value);
-//     if (this.cache.size > this.capacity) {
-//       this.cache.delete(this.cache.keys().next().value);  // keys().next().value returns first item's key
-//     }
-// };
+LRUCache.prototype.put = function(key, value) {
+    if(this.cache[key]) this.DLL.remove(this.cache[key]);
+    this.cache[key] = this.DLL.push(key, value);
+    if(this.DLL.length > this.capacity) {
+        const currKey = this.DLL.head.key;
+        delete this.cache[currKey];
+        this.DLL.remove(this.DLL.head);
+    }
+};
 
 /**
  * Your LRUCache object will be instantiated and called as such:
