@@ -6,6 +6,8 @@ https://www.bigocheatsheet.com/
 * [search](search/README.md): 
   * [binary search](search/binary-search/README.md)
 * [sorting](sorting)
+  * [quick sort](sorting/quick-sort/README.md)
+  * [merge sort](sorting/merge-sort/README.md)
 * [linked-list](linked-list/index.js)
   * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
   * [merge-k-sorted-lists](linked-list/solutions/merge-k-sorted-lists/index.js)
