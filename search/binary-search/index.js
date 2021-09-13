@@ -1,5 +1,5 @@
-'use strict';
-
+// arr expected to be sorted,
+// if not - sort it first
 function binarySearch(arr, elem) {
     let start = 0;
     let end = arr.length - 1;
@@ -16,7 +16,3 @@ function binarySearch(arr, elem) {
 
     return arr[middle] === elem ? middle : -1;
 }
-
-module.exports = {
-    binarySearch
-};

@@ -3,6 +3,8 @@ https://visualgo.net/
 ### Big O Cheat Sheet
 https://www.bigocheatsheet.com/
 ### Code implementation
+* [search](search/README.md): 
+  * [binary search](search/binary-search/README.md)
 * [sorting](sorting)
 * [linked-list](linked-list/index.js)
   * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
