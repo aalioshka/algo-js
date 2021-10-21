@@ -119,7 +119,7 @@ function DoublyLinkedList(){
 
     this.set = function(index, val){
         let foundNode = this.get(index);
-        if(!foundNode){
+        if(foundNode){
             foundNode.val = val;
             return true;
         }
@@ -178,4 +178,5 @@ list.remove(0);
 list.insert(0, 100);
 list.remove(1);
 list.insert(1, 50);
+list.set(0, 'I was set correctly !!!')
 console.log(list);
