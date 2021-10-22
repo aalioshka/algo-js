@@ -12,36 +12,40 @@
 var reverseList = function(head) {
     /*
     start: ****
-        p1  p2
-            (p3) p3
-            p1   p2
-            1 -> 2 -> 3 -> 4
+             1 -> 2 -> 3 -> 4
+         p   c
+            (n)  n
+             p   c
     null <- 1    2 -> 3 -> 4
-            p1   p2
-                (p3) p3
-                p1   p2
-            1 <- 2   3 -> 4
-                p1   p2
-                    (p3) p3
-                    p1   p2
-            1 <- 2 <- 3   4
-                    p1   p2
-                        (p3) p3
-                         p1   p2
+             p   c
+                (n)   n
+                 p    n
+            1 <- 2    3 -> 4
+                 p     n
+                      (n)  n
+                       p   c
+            1 <- 2 <-  3   4
+                       p   c
+                          (n)   n
+                           p   c
             1 <- 2 <- 3 <- 4
     end: ****
 
     */
-    let pointer1 = null; // previous
-    let pointer2 = head; // current
-    let pointer3 = head; // next
-    while(pointer2){
-        pointer3 = pointer2.next; // save reff from current to next
-        pointer2.next = pointer1; // change pointer from right to left
+    let previous = null; // previous
+    let current = head; // current
+    let next = head; // next
+    while(current){
+        // 1)
+        next = current.next; // save reff from current to next
+        // 2)
+        current.next = previous; // change pointer from right to left
+
+        // 3)
         // now move both previous and current pointers to the right
         // until we rich end of the list
-        pointer1 = pointer2; // move previous to the right
-        pointer2 = pointer3; // move current to the right
+        previous = current; // move previous to the right
+        current = next; // move current to the right
     }
-    return pointer1;
+    return previous;
 };
