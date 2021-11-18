@@ -15,29 +15,21 @@ class BinarySearchTree {
         this.root = null;
     }
 
-    insert(value) {
-        let newNode = new Node(value);
-        if (this.root === null) {
-            this.root = newNode;
-        } else {
-            insertNode(this.root, newNode);
-        }
-    }
+    find(value) {
+        return searchNode(this.root, value);
+    };
 }
 
-function insertNode(node, newNode) {
-    if (newNode.value < node.value) {
-        if (node.left === null) {
-            node.left = newNode;
-        } else {
-            insertNode(node.left, newNode);
-        }
+function searchNode(node, value) {
+    if (node === null) {
+        return false;
+    }
+    if (value < node.value) {
+        return searchNode(node.left, value);
+    } else if (value > node.value) {
+        return searchNode(node.right, value);
     } else {
-        if (node.right === null) {
-            node.right = newNode;
-        } else {
-            insertNode(node.right, newNode);
-        }
+        return node;
     }
 }
 ```
