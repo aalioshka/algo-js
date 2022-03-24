@@ -20,6 +20,9 @@ function quickSort(nums) {
     // return quickSort(left).concat(pivot, quickSort(right));
 }
 
+// tests
+console.log(quickSort([38, 27, 43, 3, 9, 82, 10])); // [3, 9, 10, 27, 38, 43, 82]
+
 // from Colt lectures:
 // just for the reference, complicated approach for coding on the white board
 function quickSort2(arr, left = 0, right = arr.length -1){
