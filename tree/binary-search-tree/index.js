@@ -116,6 +116,7 @@ function searchNode(node, value) {
     }
 }
 
+// test
 
 //      10
 //   5     13
@@ -130,13 +131,11 @@ tree.insert(2);
 tree.insert(16);
 tree.insert(7);
 
-let find;
-find = tree.find(13);
-find = tree.find(7);
-find = tree.find(9); // false
-find = tree.find(10); // false
-let bfs = tree.breadthFirstSearch(); // [10, 5, 13, 2, 7, 11, 16]
-let dfpre = tree.depthFirstSearchPreOrder(); // [10, 5, 2, 7, 13, 11, 16]
-let dfpost = tree.depthFirstSearchPostOrder(); // [2, 7, 5, 11, 16, 13, 10]
-let dfin = tree.depthFirstSearchInOrder(); // [2, 5, 7, 10, 11, 13, 16]
-console.log(bfs, dfpre, dfpost, dfin);
+console.log(tree.find(13)); // Node
+console.log(tree.find(7)); // Node
+console.log(tree.find(9)); // false
+console.log(tree.find(10)); // Node
+console.log(tree.breadthFirstSearch()); // [10, 5, 13, 2, 7, 11, 16]
+console.log(tree.depthFirstSearchPreOrder()); // [10, 5, 2, 7, 13, 11, 16]
+console.log(tree.depthFirstSearchPostOrder()); // [2, 7, 5, 11, 16, 13, 10]
+console.log(tree.depthFirstSearchInOrder()); // [2, 5, 7, 10, 11, 13, 16]
