@@ -12,7 +12,7 @@ class PriorityQueue {
     sort() {
         // mocking priority queue with sorting O (N log N)
         // see the real implementation with O (log N):
-        // https://github.com/Alioshka/algo-js/blob/master/heap/solutions/min-binary-heap-priority-queue.js
+        // algo-js/heap/solutions/min-binary-heap-priority-queue.js
         this.values.sort((a, b) => a.priority - b.priority);
     };
 }
@@ -32,8 +32,9 @@ class WeightedGraph {
         const nodes = new PriorityQueue();
         const distances = {};
         const previous = {};
-        let path = [] //to return at end
+        let path = [] // to return at the end
         let smallest;
+
         //build up initial state
         for(let vertex in this.adjacencyList){
             if(vertex === start){
@@ -45,6 +46,7 @@ class WeightedGraph {
             }
             previous[vertex] = null;
         }
+
         // as long as there is something to visit
         while(nodes.values.length){
             smallest = nodes.dequeue().val;
@@ -79,6 +81,7 @@ class WeightedGraph {
     }
 }
 
+// test:
 let graph = new WeightedGraph();
 graph.addVertex('A');
 graph.addVertex('B');
@@ -97,5 +100,4 @@ graph.addEdge('D','F', 1);
 graph.addEdge('E','F', 1);
 
 
-const path = graph.Dijkstra('A', 'E');
-console.log(path); // ['A', 'C', 'D', 'F', 'E']
+console.log(graph.Dijkstra('A', 'E')); // ['A', 'C', 'D', 'F', 'E']

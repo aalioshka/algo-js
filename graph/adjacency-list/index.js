@@ -101,8 +101,8 @@ class Graph{
         const result = [];
         const visited = {};
         let currentVertex;
-        visited[start] = true;
 
+        visited[start] = true;
         while(queue.length){
             currentVertex = queue.shift();
             result.push(currentVertex);
@@ -138,13 +138,9 @@ g.addEdge("D","E");
 g.addEdge("D","F");
 g.addEdge("E","F");
 
-const dfr = g.depthFirstRecursive("A");
-const dfi = g.depthFirstIterative("A");
-const bf = g.breadthFirst("A");
-
-console.log(dfr); // ["A","B","D","E","C","F"]
-console.log(dfi); // ["A","C","E","F","D","B"]
-console.log(bf); // ["A","B","C","D","E","F"]
+console.log(g.depthFirstRecursive("A")); // ["A","B","D","E","C","F"]
+console.log(g.depthFirstIterative("A")); // ["A","C","E","F","D","B"]
+console.log(g.breadthFirst("A")); // ["A","B","C","D","E","F"]
 
 //          A
 //        /   \

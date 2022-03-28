@@ -27,8 +27,7 @@ depthFirstRecursive(start){
     return result;
 }
 
-const dfr = g.depthFirstRecursive("A");
-console.log(dfr); // ["A","B","D","E","C","F"]
+console.log(g.depthFirstRecursive("A")); // ["A","B","D","E","C","F"]
 //          A
 //        /   \
 //       B     C

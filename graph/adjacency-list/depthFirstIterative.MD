@@ -28,8 +28,7 @@ depthFirstIterative(start){
     return result;
 }
 
-const dfi = g.depthFirstIterative("A");
-console.log(dfi); // ["A","C","E","F","D","B"]
+console.log(g.depthFirstIterative("A")); // ["A","C","E","F","D","B"]
 //          A
 //        /   \
 //       B     C

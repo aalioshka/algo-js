@@ -12,8 +12,8 @@ breadthFirst(start){
     const result = [];
     const visited = {};
     let currentVertex;
-    visited[start] = true;
 
+    visited[start] = true;
     while(queue.length){
         currentVertex = queue.shift();
         result.push(currentVertex);
@@ -28,8 +28,7 @@ breadthFirst(start){
     return result;
 }
 
-const bf = g.breadthFirst("A");
-console.log(bf); // ["A","B","C","D","E","F"]
+console.log(g.breadthFirst("A")); // ["A","B","C","D","E","F"]
 //          A
 //        /   \
 //       B     C
