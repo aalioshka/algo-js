@@ -51,7 +51,7 @@ function  LinkedList() {
         }
     }
 
-    this.insert = function (position, element){
+    this.insertAt = function (position, element){
         if(position >= 0 && position <= this.length){
             let node = new Node(element);
             let current = this.head;
@@ -79,6 +79,7 @@ function  LinkedList() {
     }
 }
 
+// test
 let list = new LinkedList();
 list.append(15);
 list.append(10);
@@ -89,7 +90,7 @@ list.append(0);
 list.removeAt(2);
 list.removeAt(3);
 list.removeAt(0);
-list.insert(0, 100);
+list.insertAt(0, 100);
 list.removeAt(1);
-list.insert(1, 50);
+list.insertAt(1, 50);
 console.log(list);

@@ -27,6 +27,9 @@ https://www.bigocheatsheet.com/
     * [Dijkstra](graph/adjacency-list/dijkstra.js)
   * [adjacency matrix](graph/adjacency-matrix/index.js)
 * [linked-list](linked-list/index.js)
+  * [append](linked-list/append.MD) - add to the end
+  * [insertAt](linked-list/insertAt.MD)
+  * [removeAt](linked-list/removeAt.MD)
   * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
   * merge-k-sorted-lists:
     * [easy to write O(kN)](linked-list/solutions/merge-k-sorted-lists/index.js)
