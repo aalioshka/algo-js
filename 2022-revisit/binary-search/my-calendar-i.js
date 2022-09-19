@@ -26,21 +26,23 @@ MyCalendar.prototype.book = function(start, end) {
 };
 
 function insertNode(root, newNode) {
+    if (newNode.end <= root.start) {
+        if (root.left === null) {
+            root.left = newNode;
+            return true;
+        }
+        return insertNode(root.left, newNode);
+    }
+
     if (newNode.start >= root.end) {
         if (root.right === null) {
             root.right = newNode;
             return true;
         }
         return insertNode(root.right, newNode);
-    } else if (newNode.end <= root.start) {
-        if (root.left === null) {
-            root.left = newNode;
-            return true;
-        }
-        return insertNode(root.left, newNode);
-    } else {
-        return false;
     }
+
+    return false;
 }
 
 /**
