@@ -9,7 +9,7 @@ https://www.bigocheatsheet.com/
   * [quick sort](sorting/quick-sort/README.md)
   * [merge sort](sorting/merge-sort/README.md)
 * tree
-  * [binary search tree](tree/binary-search-tree/index.js)
+  * binary search tree
     * [insert node](tree/binary-search-tree/insertNode.MD)
     * [search node](tree/binary-search-tree/searchNode.MD)
     * traversing
