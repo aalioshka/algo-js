@@ -3,12 +3,12 @@ https://visualgo.net/
 ### Big O Cheat Sheet
 https://www.bigocheatsheet.com/
 ### Code implementation
-* [search](search/README.md): 
+* search: 
   * [binary search](search/binary-search/README.md)
-* [sorting](sorting)
+* sorting
   * [quick sort](sorting/quick-sort/README.md)
   * [merge sort](sorting/merge-sort/README.md)
-* [tree](tree)
+* tree
   * [binary search tree](tree/binary-search-tree/index.js)
     * [insert node](tree/binary-search-tree/insertNode.MD)
     * [search node](tree/binary-search-tree/searchNode.MD)
