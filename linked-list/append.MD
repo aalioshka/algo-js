@@ -39,3 +39,4 @@ list.append(1);
 list.append(0);
 console.log(list);
 ```
+[all code](index.js)

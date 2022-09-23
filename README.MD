@@ -26,16 +26,17 @@ https://www.bigocheatsheet.com/
       * [cheapest flights within k stops](graph/solutions/breadth-first-search/cheapest-flights-within-k-stops/index.js)
     * [Dijkstra](graph/adjacency-list/dijkstra.js)
   * [adjacency matrix](graph/adjacency-matrix/index.js)
-* [linked-list](linked-list/index.js)
+* linked-list
   * [append](linked-list/append.MD) - add to the end
   * [insertAt](linked-list/insertAt.MD)
   * [removeAt](linked-list/removeAt.MD)
-  * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
-  * merge-k-sorted-lists:
-    * [easy to write O(kN)](linked-list/solutions/merge-k-sorted-lists/index.js)
-    * [optimal O(Nlogk) Min Binary Heap (Priority Queue)](linked-list/solutions/merge-k-sorted-lists/index-heap.js)
-  * [reverse-linked-list](linked-list/solutions/reverse-linked-list/index.js)
-  * Two pointers(slow, fast):
+  * solutions:
+    * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
+    * merge-k-sorted-lists:
+      * [easy to write O(kN)](linked-list/solutions/merge-k-sorted-lists/index.js)
+      * [optimal O(Nlogk) Min Binary Heap (Priority Queue)](linked-list/solutions/merge-k-sorted-lists/index-heap.js)
+    * [reverse-linked-list](linked-list/solutions/reverse-linked-list/index.js)
+    * Two pointers(slow, fast):
       * [linked-list-cycle](linked-list/solutions/linked-list-cycle/index.js)
       * [middle-of-the-linked-list](linked-list/solutions/middle-of-the-linked-list/index.js)
       * [remove-nth-node-from-end-of-list](linked-list/solutions/remove-nth-node-from-end-of-list/index.js)

@@ -49,3 +49,4 @@ list.insertAt(0, 100);
 list.insertAt(1, 50);
 console.log(list);
 ```
+[all code](index.js)

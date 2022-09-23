@@ -47,3 +47,4 @@ list.removeAt(3);
 list.removeAt(0);
 console.log(list);
 ```
+[all code](index.js)
