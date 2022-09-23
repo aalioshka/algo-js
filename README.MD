@@ -18,8 +18,8 @@ https://www.bigocheatsheet.com/
         * [pre order](tree/binary-search-tree/depthFirstSearchPreOrder.MD)
         * [in order](tree/binary-search-tree/depthFirstSearchInOrder.MD)
         * [post order](tree/binary-search-tree/depthFirstSearchPostOrder.MD)
-* [graph](graph)
-  * [adjacency list](graph/adjacency-list/index.js)
+* graph
+  * adjacency list
     * [Depth First Search Recursive](graph/adjacency-list/depthFirstRecursive.MD)
     * [Depth First Search Iterative](graph/adjacency-list/depthFirstIterative.MD)
     * [Breadth First Search](graph/adjacency-list/breadthFirst.MD)
