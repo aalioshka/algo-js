@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/course-schedule-ii/discuss/1412040/JavaScript-DFS-Topological-Sort
-
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
@@ -47,4 +45,5 @@ var findOrder = function(numCourses, prerequisites) {
         res.push(v);
         return true;
     }
+
 };
