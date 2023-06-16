@@ -2,21 +2,23 @@
 ```typescript
 // arr expected to be sorted,
 // if not - sort it first
-function binarySearch(arr, elem) {
-    let startIndex = 0;
-    let endIndex = arr.length - 1;
-    let middleIndex = Math.floor((startIndex + endIndex) / 2);
+function binarySearch(arr, target) {
+    let l = 0;
+    let r = arr.length - 1;
 
-    while(arr[middleIndex] !== elem && startIndex < endIndex) {
-        if(elem < arr[middleIndex]){
-            endIndex = middleIndex - 1;
+    while(l <= r) {
+        let middle = Math.floor((l + r) / 2);
+        if(target > arr[middle]){
+            l = middle + 1;
+        } else if (target < arr[middle]) {
+            r = middle - 1;
         } else {
-            startIndex = middleIndex + 1;
+            return middle; // target === arr[middle];
         }
-        middleIndex = Math.floor((startIndex + endIndex) / 2);
     }
 
-    return arr[middleIndex] === elem ? middleIndex : -1;
+    // there is no target in the array
+    return -1;
 }
 ```
 [implementation](./index.js)
