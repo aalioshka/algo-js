@@ -12,8 +12,9 @@
  */
 var hasCycle = function(head) {
     // Approach 1:
+    /*
     let current = head
-    while(current) {
+    while (current) {
         // if we've been here return true
         if (current.hasBeenVisited) return true;
         // otherwise, mark that we've been here
@@ -22,15 +23,18 @@ var hasCycle = function(head) {
         current = current.next
     }
     return false
+    */
     // Approach 2: Two pointers
-    //   let fast = head;
-    //   let slow = head;
+    let slow = head;
+    let fast = head;
 
-    //   while (fast && fast.next) {
-    //     fast = fast.next.next;
-    //     slow = slow.next;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
 
-    //     if (fast === slow) return true;
-    //   }
-    //   return false;
+        if (slow === fast) {
+            return true;
+        }
+    }
+    return false;
 };
