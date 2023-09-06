@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/remove-nth-node-from-end-of-list/discuss/1358175/javascript-two-pointers-slow-fast-solution-with-comments
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -13,52 +11,25 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
-    /*
-    n = 4
-    
-    p1(fast)
-    p2(slow)
-    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
-    
-                            p1 (n + 1)
-    p2
-    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
-    
-                                  p1
-         p2
-    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8    
-    
-    .....
-    
-                                          p1
-                   p2
-    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8  null 
-    
-    
-    1 -> 2 -> 3 -> 4 -> X -> 6 -> 7 -> 8 
-    */
-
-    // use dummy head to handle removing head edge case (input: [1] , 1)
     let dummyHead = {
-        val: -1,
+        val: 0,
         next: head
     };
 
-    let fast = dummyHead;
-    let slow = dummyHead;
+    let left = dummyHead;
+    let right = head;
 
-    // Move fast n + 1 nodes ahead of slow
-    for (let i = 0; i < n + 1; i++) {
-        fast = fast.next;
+    while (n > 0) {
+        right = right.next;
+        n -= 1;
     }
 
-    // Move fast to end, slow will be (n + 1)th from last node, just before the node to remove
-    while (fast) {
-        fast = fast.next;
-        slow = slow.next;
+    while (right) {
+        left = left.next;
+        right = right.next;
     }
 
-    // Remove the nth from last node
-    slow.next = slow.next.next;
+    // delete
+    left.next = left.next.next
     return dummyHead.next;
 };
