@@ -1,43 +1,58 @@
-// https://leetcode.com/problems/number-of-islands/discuss/515176/javascript-simple-brute-force-solution
-// 200. Number of Islands
-//
-// Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
-// An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
-// You may assume all four edges of the grid are all surrounded by water.
-//
-// Example 1:
-// Input:
-// 11110
-// 11010
-// 11000
-// 00000
-// Output: 1
-
-// Example 2:
-// Input:
-// 11000
-// 11000
-// 00100
-// 00011
-// Output: 3
-
 /**
  * @param {character[][]} grid
  * @return {number}
  */
 var numIslands = function(grid) {
     let num = 0;
-    for(let i=0; i<grid.length; i++) {
-        for(let j=0; j<grid[0].length; j++) {
-            if(grid[i][j] == 1) {
-                grid[i][j] = -1; // mark as visited
+    for(let row = 0; row < grid.length; row++) {
+        for(let col = 0; col < grid[row].length; col++) {
+            if(grid[row][col] == 1) {
+                grid[row][col] = -1; // mark as visited
                 num++;
-                dfs(grid, i, j);
+
+                // 1) solution Depth First Search
+                dfs(grid, row, col);
+
+                // 2) solution Breadth First Search
+                // bfs(grid, row, col);
             }
         }
     }
     return num;
 };
+
+function bfs(grid, rid, cid) {
+    let queue = [[rid, cid]];
+
+    while(queue.length) {
+        let [r, c] = queue.shift();
+
+        // check up
+        if(grid[r+1] && grid[r+1][c] == 1){
+            grid[r+1][c] = -1; // mark as visited
+            queue.push([r+1, c]);
+        }
+
+        // check down
+        if(grid[r-1] && grid[r-1][c] == 1) {
+            grid[r-1][c] = -1; // mark as visited
+            queue.push([r-1, c]);
+        }
+
+        // check right
+        if(grid[r][c+1] == 1) {
+            grid[r][c+1] = -1; // mark as visited
+            queue.push([r, c+1]);
+        }
+
+        // check left
+        if(grid[r][c-1] == 1) {
+            grid[r][c-1] = -1; // mark as visited
+            queue.push([r, c-1]);
+        }
+    }
+
+}
 
 function dfs(grid, rid, cid) {
     // check up
