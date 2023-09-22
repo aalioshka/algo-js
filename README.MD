@@ -22,6 +22,7 @@ https://www.bigocheatsheet.com/
   * adjacency list
     * [Depth First Search Recursive](graph/adjacency-list/depthFirstRecursive.MD)
       * [course schedule](2023-revisit/graph/course-schedule.js) 
+      * [course schedule-ii](2023-revisit/graph/course-schedule-ii.js)
     * [Depth First Search Iterative](graph/adjacency-list/depthFirstIterative.MD)
     * [Breadth First Search](graph/adjacency-list/breadthFirst.MD)
       * [cheapest flights within k stops](graph/solutions/breadth-first-search/cheapest-flights-within-k-stops/index.js)
