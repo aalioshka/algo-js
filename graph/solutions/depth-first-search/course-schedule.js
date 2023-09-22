@@ -7,10 +7,11 @@ var canFinish = function(numCourses, prerequisites) {
     // https://www.youtube.com/watch?v=EgI5nU9etnU
     const preMap = {};
 
+    for(let i = 0; i < numCourses; i++){
+        preMap[i] = [];
+    }
+
     for (const [crs, pre] of prerequisites) {
-        if (!preMap[crs]) {
-            preMap[crs] = [];
-        }
         preMap[crs].push(pre);
     }
 
@@ -20,7 +21,7 @@ var canFinish = function(numCourses, prerequisites) {
         if (visiting.has(crs)) {
             return false;
         }
-        if (!preMap[crs] || preMap[crs].length === 0) {
+        if (preMap[crs].length === 0) {
             return true;
         }
 
@@ -43,4 +44,3 @@ var canFinish = function(numCourses, prerequisites) {
     }
     return true;
 }
-
