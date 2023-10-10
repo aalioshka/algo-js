@@ -14,6 +14,8 @@ https://www.bigocheatsheet.com/
     * [search node](tree/binary-search-tree/searchNode.MD)
     * traversing
       * [breadth first search](tree/binary-search-tree/breadthFirstSearch.MD)
+        * [level-order-traversal](tree/binary-search-tree/breadth-first-search-solutions/binary-tree-level-order-traversal.js)
+        * [vertical-order-traversal](tree/binary-search-tree/breadth-first-search-solutions/binary-tree-vertical-order-traversal.js)
       * depth first search
         * [pre order](tree/binary-search-tree/depthFirstSearchPreOrder.MD)
         * [in order](tree/binary-search-tree/depthFirstSearchInOrder.MD)
