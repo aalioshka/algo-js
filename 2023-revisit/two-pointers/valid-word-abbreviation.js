@@ -4,33 +4,47 @@
  * @return {boolean}
  */
 var validWordAbbreviation = function(word, abbr) {
-    let i = 0;
-    let j = 0;
+    let abbrPointer = 0;
+    let wordPointer = 0;
     let number = 0;
 
-    while(i < abbr.length && j < word.length) {
-        if(!isNaN(abbr[i])) { // if number
-            // add the number to the previous number times 10
-            // for example "12" will be 1 first then 10 + 2
-            number = number * 10 + Number(abbr[i]);
+    while(abbrPointer < abbr.length && wordPointer < word.length) {
+        if(!isNaN(abbr[abbrPointer])) { // if number
+            // "12" will be 1 * 10 + 2
+            number = number * 10 + Number(abbr[abbrPointer]);
 
             // if the new number is zero return false for leading zeros
             if(number === 0) return false;
 
-            i++; // increment the abbv pointer
-        } else if(number > 0) {
-            j += number; // move the word pointer by number spaces
-            number = 0; // reset the number
+            abbrPointer++; // increment the abbr pointer
+        } else { // if not a number
+            if(number > 0) {
+                wordPointer += number; // move the word pointer by number spaces
+                number = 0; // reset the number
+                continue;
+            } else {
+                if(abbr[abbrPointer] === word[wordPointer]) {
+                    abbrPointer++;
+                    wordPointer++;
+                } else {
+                    return false;
+                }
+            }
         }
-        else if(abbr[i] === word[j]) { // if the characters match
-            // increment both pointers
-            i++;
-            j++;
-        }
-        // otherwise the characters don't match so return false
-        else return false;
     }
-    // the abbv is valid if the abbv pointer made it all the way through the string
-    // and the word pointer plus any remaining number made it through the string
-    return i === abbr.length && j + number === word.length;
+
+    return abbrPointer === abbr.length && wordPointer + number === word.length;
 };
+/*
+A substring is a contiguous non-empty sequence of characters within a string.
+
+Example 1:
+Input: word = "internationalization", abbr = "i12iz4n"
+Output: true
+Explanation: The word "internationalization" can be abbreviated as "i12iz4n" ("i nternational iz atio n").
+
+Example 2:
+Input: word = "apple", abbr = "a2e"
+Output: false
+Explanation: The word "apple" cannot be abbreviated as "a2e".
+ */
