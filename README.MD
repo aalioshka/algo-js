@@ -47,8 +47,7 @@ https://www.bigocheatsheet.com/
 * [doubly-linked-list](linked-list/doubly-linked-list/index.js)
   * [lru-cache](linked-list/doubly-linked-list/solutions/lru-cache/index2.js)
 * [trie](trie)
-* heap
-  * [parent/child relationship](heap/README.MD)
+* [heap](heap/README.MD)
   * [max-binary-heap](heap/max-binary-heap.js)
     * [insert](heap/maxBinaryHeapInsert.MD)
     * [extract max](heap/maxBinaryHeapExtractMax.MD)

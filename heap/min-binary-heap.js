@@ -1,6 +1,6 @@
 // https://en.wikipedia.org/wiki/Heap_(data_structure)
 // given a node at index i,
-// its children are at indices 2i + 1 and 2i + 2,
+// its children are at indices 2*i + 1 and 2*i + 2,
 // and its parent is at index floor((i-1)/2)
 // BIG O
 // insertion - O(log N)
