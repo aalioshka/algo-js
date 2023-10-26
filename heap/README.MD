@@ -7,13 +7,13 @@
 <b>Children:</b>
 ```javascript
 For any index of an array n...
-let leftChildIdx = 2 * idx + 1;
-let rightChildIdx = 2 * idx + 2;
+let leftChildIdx = 2 * index + 1;
+let rightChildIdx = 2 * index + 2;
 ```
 <b>Parent:</b>
 ```javascript
 For any child node at index n...
 Its parent is at:
-let parentIdx = Math.floor((idx - 1)/2);
+let parentIdx = Math.floor((index - 1)/2);
 ```
-![heap](img/heap.jpg)
+![heap](img/heap.jpeg)
