@@ -16,7 +16,7 @@ For any child node at index n...
 Its parent is at:
 let parentIdx = Math.floor((index - 1)/2);
 ```
-![heap](../../img/heap.jpeg)
+![heap](../../img/heap.svg)
 ```javascript
 /*
 MinBinaryHeap - parent nodes are always smaller than child nodes.
