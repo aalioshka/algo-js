@@ -1,11 +1,14 @@
 // https://en.wikipedia.org/wiki/Heap_(data_structure)
+
 // given a node at index i,
 // its children are at indices 2*i + 1 and 2*i + 2,
 // and its parent is at index floor((i-1)/2)
+
 // BIG O
 // insertion - O(log N)
 // removal - O(log N)
 // search - O(N)
+
 // MaxBinaryHeap - parent nodes are always larger than child nodes.
 /*
                         100
@@ -14,20 +17,7 @@
 
        id:         0    1   2   3   4   5  6
        data:     [100, 19, 36, 17, 12, 25, 5]
-
  */
-
-// MinBinaryHeap - parent nodes are always smaller than child nodes.
-/*
-                        1
-                19              36
-            27      22      45      55
-
-       id:         0    1   2   3   4   5  6
-       data:     [1, 19, 36, 27, 22, 45, 55]
-
- */
-
 
 class MaxBinaryHeap {
     constructor(){
