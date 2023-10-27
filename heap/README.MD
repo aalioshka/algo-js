@@ -17,3 +17,6 @@ Its parent is at:
 let parentIdx = Math.floor((index - 1)/2);
 ```
 ![heap](img/heap.jpeg)
+
+* [max binary heap insert](maxBinaryHeapInsert.MD)
+* [max binary heap extract max](maxBinaryHeapExtractMax.MD)

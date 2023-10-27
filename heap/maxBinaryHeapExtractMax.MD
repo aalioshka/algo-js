@@ -33,29 +33,29 @@ class MaxBinaryHeap {
             let leftChildIdx = 2 * idx + 1;
             let rightChildIdx = 2 * idx + 2;
             let leftChild, rightChild;
-            let swap = null;
+            let swapIdx = null;
 
             if(leftChildIdx < length){
                 leftChild = this.values[leftChildIdx];
                 if(leftChild > element){
-                    swap = leftChildIdx;
+                    swapIdx = leftChildIdx;
                 }
             }
 
             if(rightChildIdx < length){
                 rightChild = this.values[rightChildIdx];
                 if(
-                    (swap === null && rightChild > element) ||
-                    (swap !== null && rightChild > leftChild)
+                    (swapIdx === null && rightChild > element) ||
+                    (swapIdx !== null && rightChild > leftChild)
                 ){
-                    swap = rightChildIdx;
+                    swapIdx = rightChildIdx;
                 }
             }
 
-            if(swap === null) break;
-            this.values[idx] = this.values[swap];
-            this.values[swap] = element;
-            idx = swap;
+            if(swapIdx === null) break;
+            this.values[idx] = this.values[swapIdx];
+            this.values[swapIdx] = element;
+            idx = swapIdx;
         }
     }
 }

@@ -51,7 +51,3 @@ https://www.bigocheatsheet.com/
   * [max-binary-heap](heap/max-binary-heap.js)
     * [insert](heap/maxBinaryHeapInsert.MD)
     * [extract max](heap/maxBinaryHeapExtractMax.MD)
-  * [min-binary-heap](heap/min-binary-heap.js)
-    * [insert](heap/minBinaryHeapInsert.MD) 
-    * [extract min](heap/minBinaryHeapExtractMin.MD)
-    * [priority queue](heap/solutions/min-binary-heap-priority-queue.js)
