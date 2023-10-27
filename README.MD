@@ -48,6 +48,6 @@ https://www.bigocheatsheet.com/
   * [lru-cache](linked-list/doubly-linked-list/solutions/lru-cache/index2.js)
 * [trie](trie)
 * [heap](heap/README.MD)
-  * [max-binary-heap](heap/max-binary-heap.js)
+  * max-binary-heap
     * [insert](heap/maxBinaryHeapInsert.MD)
     * [extract max](heap/maxBinaryHeapExtractMax.MD)

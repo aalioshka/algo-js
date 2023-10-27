@@ -1,12 +1,29 @@
+<b>BIG O</b>
 ```javascript
-// MinBinaryHeap - parent nodes are always smaller than child nodes.
+* insertion - O(log N)
+* removal - O(log N)
+* search - O(N)
+```
+<b>Children:</b>
+```javascript
+For any index of an array n...
+let leftChildIdx = 2 * index + 1;
+let rightChildIdx = 2 * index + 2;
+```
+<b>Parent:</b>
+```javascript
+For any child node at index n...
+Its parent is at:
+let parentIdx = Math.floor((index - 1)/2);
+```
+![heap](../../img/heap.jpeg)
+```javascript
 /*
-                        1
-                19              36
-            27      22      45      55
+MinBinaryHeap - parent nodes are always smaller than child nodes.
 
-       id:         0    1   2   3   4   5  6
-       data:     [1, 19, 36, 27, 22, 45, 55]
+              1
+     19              36
+ 27      22      45      55
 
  */
 class MaxBinaryHeap {

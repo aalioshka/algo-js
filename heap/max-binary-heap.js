@@ -1,23 +1,41 @@
-// https://en.wikipedia.org/wiki/Heap_(data_structure)
-
-// given a node at index i,
-// its children are at indices 2*i + 1 and 2*i + 2,
-// and its parent is at index floor((i-1)/2)
-
-// BIG O
-// insertion - O(log N)
-// removal - O(log N)
-// search - O(N)
-
-// MaxBinaryHeap - parent nodes are always larger than child nodes.
 /*
+********************************************
+********************************************
+https://en.wikipedia.org/wiki/Heap_(data_structure)
+********************************************
+********************************************
+BIG O:
+
+insertion - O(log N)
+removal - O(log N)
+search - O(N)
+*********************************************
+*********************************************
+Children:
+
+For any index of an array n...
+let leftChildIdx = 2 * index + 1;
+let rightChildIdx = 2 * index + 2;
+*********************************************
+*********************************************
+Parent:
+
+For any child node at index n...
+Its parent is at:
+let parentIdx = Math.floor((index - 1)/2);
+*********************************************
+*********************************************
+MaxBinaryHeap - parent nodes are always larger than child nodes.
+
                         100
                 19              36
             17      12      25      5
 
-       id:         0    1   2   3   4   5  6
-       data:     [100, 19, 36, 17, 12, 25, 5]
- */
+ id:         0    1   2   3   4   5  6
+ data:     [100, 19, 36, 17, 12, 25, 5]
+*********************************************
+*********************************************
+*/
 
 class MaxBinaryHeap {
     constructor(){
@@ -102,3 +120,13 @@ while(max){
     max = maxHeap.extractMax();
     console.log(max);
 }
+/*
+Output:
+100
+36
+25
+19
+17
+12
+5
+ */

@@ -1,13 +1,30 @@
+<b>BIG O</b>
 ```javascript
-// MaxBinaryHeap - parent nodes are always larger than child nodes.
+* insertion - O(log N)
+* removal - O(log N)
+* search - O(N)
+```
+<b>Children:</b>
+```javascript
+For any index of an array n...
+let leftChildIdx = 2 * index + 1;
+let rightChildIdx = 2 * index + 2;
+```
+<b>Parent:</b>
+```javascript
+For any child node at index n...
+Its parent is at:
+let parentIdx = Math.floor((index - 1)/2);
+```
+![heap](img/heap.jpeg)
+```javascript
 /*
-                        100
-                19              36
-            17      12      25      5
+MaxBinaryHeap - parent nodes are always larger than child nodes.
 
-       id:         0    1   2   3   4   5  6
-       data:     [100, 19, 36, 17, 12, 25, 5]
-
+             100
+     19              36
+ 17      12      25      5
+ 
  */
 class MaxBinaryHeap {
     constructor() {
