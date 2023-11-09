@@ -36,12 +36,12 @@ class MaxBinaryHeap {
         const end = this.values.pop();
         if(this.values.length > 0){
             this.values[0] = end;
-            this._heapify();
+            this._moveDown();
         }
         return min;
     }
 
-    _heapify(){
+    _moveDown(){
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];

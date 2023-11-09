@@ -36,7 +36,7 @@ class PriorityQueue {
 
     enqueue(val, priority){
         this._values.push(new Node(val, priority));
-        this._traverseUp();
+        this._moveUp();
     }
 
     dequeue(){
@@ -44,13 +44,13 @@ class PriorityQueue {
         const end = this._values.pop();
         if(this._values.length > 0){
             this._values[0] = end;
-            this._traverseDown();
+            this._moveDown();
         }
         return max.val;
 
     }
 
-    _traverseUp(){
+    _moveUp(){
         let idx = this._values.length - 1;
         const el = this._values[idx];
         while(idx > 0){
@@ -63,7 +63,7 @@ class PriorityQueue {
         }
     }
 
-    _traverseDown(){
+    _moveDown(){
         let leftChildIdx = null;
         let rightChildIdx = null;
         let leftChild = null;

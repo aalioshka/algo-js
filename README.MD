@@ -51,3 +51,5 @@ https://www.bigocheatsheet.com/
   * max-binary-heap
     * [insert](heap/maxBinaryHeapInsert.MD)
     * [extract max](heap/maxBinaryHeapExtractMax.MD)
+    * solutions:
+      * [priority-queue](heap/solutions/priority-queue/priorityQueue.MD)

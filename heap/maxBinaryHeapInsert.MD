@@ -33,10 +33,10 @@ class MaxBinaryHeap {
 
     insert(element) {
         this.values.push(element);
-        this._bubbleUp();
+        this._moveUp();
     }
 
-    _bubbleUp() {
+    _moveUp() {
         let idx = this.values.length - 1;
         const element = this.values[idx];
         while (idx > 0) {

@@ -44,7 +44,7 @@ class MinBinaryHeap {
 
     insert(element){
         this.values.push(element);
-        this._bubbleUp();
+        this._moveUp();
     }
 
     extractMin(){
@@ -52,12 +52,12 @@ class MinBinaryHeap {
         const end = this.values.pop();
         if(this.values.length > 0){
             this.values[0] = end;
-            this._heapify();
+            this._moveDown();
         }
         return min;
     }
 
-    _bubbleUp(){
+    _moveUp(){
         let idx = this.values.length - 1;
         const element = this.values[idx];
         while(idx > 0){
@@ -70,7 +70,7 @@ class MinBinaryHeap {
         }
     }
 
-    _heapify(){
+    _moveDown(){
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];

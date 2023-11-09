@@ -15,7 +15,7 @@ class PriorityQueue {
     enqueue(val, priority){
         let newNode = new Node(val, priority);
         this.values.push(newNode);
-        this._bubbleUp();
+        this._moveUp();
     }
 
     dequeue(){
@@ -23,12 +23,12 @@ class PriorityQueue {
         const end = this.values.pop();
         if(this.values.length > 0){
             this.values[0] = end;
-            this._sinkDown();
+            this._moveDown();
         }
         return min;
     }
 
-    _bubbleUp(){
+    _moveUp(){
         let idx = this.values.length - 1;
         const element = this.values[idx];
         while(idx > 0){
@@ -41,7 +41,7 @@ class PriorityQueue {
         }
     }
 
-    _sinkDown(){
+    _moveDown(){
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];
