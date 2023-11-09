@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/top-k-frequent-elements/discuss/480532/javascript-hash-map-max-heap-priority-queue-solution
 
+// 1) O(N log N) for sort
+
 /**
  * @param {number[]} nums
  * @param {number} k
@@ -10,33 +12,62 @@ var topKFrequent = function(nums, k) {
     let results = [];
 
     // 1) first step is to build a hash map, where "element -> its frequency"
-    // it costs O(n), where n is nums.length
+    // it costs O(N), where n is nums.length
     let map = {};
     nums.forEach(n => map[n] ? map[n] += 1 : map[n] = 1);
 
-    let pq = new PriorityQueue();
+    // 2) sort the map keys array based on its frequency
+    // it costs O(N log N), where n is nums.length
+    let sortedKeys = Object.keys(map).sort((a,b)=>map[b]-map[a]);
+
+    // 3) take first k results
+    for(let i = 0; i < k; i++){
+        results.push(sortedKeys[i]);
+    }
+
+    // as result we have O(n Log n) where n is length of nums
+    return results;
+};
+
+// 2) O(N Log N) - PriorityQueue: 1) O(N) to build a map; 2) O(Log N) for PriorityQueue operations
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent2 = function(nums, k) {
+    // results array
+    let results = [];
+
+    // 1) first step is to build a hash map, where "element -> its frequency"
+    // it costs O(N), where n is nums.length
+    let map = {};
+    nums.forEach(n => map[n] ? map[n] += 1 : map[n] = 1);
+
+    let pq = new PriorityQueueImpl();
     // 2) enqueue each map element to max binary heap priority queue
     for(let key in map){
-        pq.enqueue(key, map[key]);
+        pq.enqueue(key, map[key]); // pq.enqueue is O(log N)
     }
 
     // 3) k times dequeue element from priority queue and push it to results array
     for(let i = 0; i < k; i++){
-        results.push(pq.dequeue());
+        results.push(pq.dequeue()); // pq.dequeue() is O(log N)
     }
 
     // return results array
     return results;
 };
 
-class PriorityQueue {
+class PriorityQueueImpl {
     constructor(){
         this._values = [];
     }
 
     enqueue(val, priority){
         this._values.push(new Node(val, priority));
-        this._moveUp();
+        this._traverseUp();
     }
 
     dequeue(){
@@ -44,13 +75,13 @@ class PriorityQueue {
         const end = this._values.pop();
         if(this._values.length > 0){
             this._values[0] = end;
-            this._moveDown();
+            this._traverseDown();
         }
         return max.val;
 
     }
 
-    _moveUp(){
+    _traverseUp(){
         let idx = this._values.length - 1;
         const el = this._values[idx];
         while(idx > 0){
@@ -63,7 +94,7 @@ class PriorityQueue {
         }
     }
 
-    _moveDown(){
+    _traverseDown(){
         let leftChildIdx = null;
         let rightChildIdx = null;
         let leftChild = null;
@@ -108,3 +139,39 @@ class Node {
         this.priority = priority;
     }
 }
+
+// 3) O(N Log N) Neetcode
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent3 = function(nums, k) {
+    let bucketArray = new Array(nums.length + 1).fill(new Array(0)); // need new Array(nums.length + 1) to handle edge case [1], 1, since bucketArray[1] won't exist
+    let frequency = {};
+
+    for(let i = 0; i < nums.length; i++) {
+        frequency[nums[i]] = 1 + (frequency[nums[i]] || 0);
+    }
+
+    let keys = Object.keys(frequency);
+
+    for(let i = 0; i < keys.length; i++){
+        let freq = frequency[keys[i]];
+        bucketArray[freq] = [...bucketArray[freq], keys[i]];
+    };
+
+    let outPut = [];
+
+    for(let i = bucketArray.length - 1; i >= 0; i--){
+        if(bucketArray[i].length !== 0) {
+            outPut = [...outPut, ...bucketArray[i]];
+        }
+        if(outPut.length >= k) {
+            break;
+        }
+    }
+
+    return outPut.slice(0, k);
+};
