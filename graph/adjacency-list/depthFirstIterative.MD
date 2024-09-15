@@ -37,4 +37,4 @@ console.log(g.depthFirstIterative("A")); // ["A","C","E","F","D","B"]
 //        \   /
 //          F
 ```
-[all code](index.js)
+[all code](../solutions/depth-first-search/traversing-iterative/index.js)
