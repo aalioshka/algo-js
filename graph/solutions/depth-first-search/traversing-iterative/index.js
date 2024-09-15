@@ -75,7 +75,7 @@ class Graph{
 
         visited[start] = true;
         while(stack.length){
-            currentVertex = stack.pop();
+            currentVertex = stack.pop(); // removes the last element from an array and returns that element
             result.push(currentVertex);
 
             this.adjacencyList[currentVertex].forEach(neighbor => {
@@ -104,7 +104,7 @@ class Graph{
 
         visited[start] = true;
         while(queue.length){
-            currentVertex = queue.shift();
+            currentVertex = queue.shift(); // removes the first element from an array and returns that removed element
             result.push(currentVertex);
 
             this.adjacencyList[currentVertex].forEach(neighbor => {
