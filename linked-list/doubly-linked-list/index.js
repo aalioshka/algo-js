@@ -12,7 +12,7 @@ function DoublyLinkedList(){
             // 99 is a tail, 100 is a new data
             this.tail.next = newNode; // 99 -> 100
             newNode.prev = this.tail; // 99 <- 100
-            this.tail = newNode; // 99 was a tail before, now 100 is a tail
+            this.tail = newNode;      // 99 was a tail before, now 100 is a tail
         }
         this.length++;
         return this;
@@ -26,25 +26,30 @@ function DoublyLinkedList(){
             this.head = null;
             this.tail = null;
         } else {
-            /*     T
-            1)
-            1 3 -> 7
-            1 3 <- 7
+            /*  
+            1) Move Tail
+
+                   T
+                ->   
+            1 3    7
+                <- 
 
               T
-            1 3 -> 7
-            1 3 <- 7
+                ->   
+            1 3    7
+                <- 
             */
             this.tail = poppedNode.prev;
-            // 2)
-            //   T
-            // 1 3 -> 7
-            // 1 3    7
+            
+            /*
+            2) Remove connections
+
+              T
+                   
+            1 3    7
+                
+            */
             this.tail.next = null;
-            // 3)
-            //   T
-            // 1 3 <- 7
-            // 1 3    7
             poppedNode.prev = null;
 
         }
@@ -60,18 +65,20 @@ function DoublyLinkedList(){
             this.head = null;
             this.tail = null;
         } else {
-            // 1)
-            // H ->
-            // 99 100 // move head from 99 to 100
-            //   <-
+            // 1) - move head
+            // H
+            //    ->
+            // 99    100 // move head from 99 to 100
+            //    <-
             this.head = oldHead.next;
 
             // 2) - remove connections
             this.head.prev = null;
             oldHead.next = null;
-            //    H
-            // 99 100
-            //
+            //       H
+            //   
+            // 99    100
+            // 
         }
 
         this.length--;
