@@ -43,3 +43,14 @@ var exist = function(board, word) {
         return found;
     }
 };
+
+const board = 
+[
+    ["A","B","C","E"],
+    ["S","F","C","S"],
+    ["A","D","E","E"]
+];
+
+console.log(exist(board, "ABCCED")); // true
+console.log(exist(board, "SEE")); // true
+console.log(exist(board, "ABCB")); // false
