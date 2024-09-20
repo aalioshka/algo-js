@@ -33,6 +33,7 @@ https://www.bigocheatsheet.com/
 * matrix
   * solutions:
     * [number-of-islands](matrix/solutions/number-of-islands/index.js)
+    * [word-search](matrix/solutions/word-search/index.js)
 * linked-list
   * [append](linked-list/append.MD) - add to the end
   * [insertAt](linked-list/insertAt.MD)
