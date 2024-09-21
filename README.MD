@@ -34,6 +34,7 @@ https://www.bigocheatsheet.com/
   * solutions:
     * [number-of-islands](matrix/solutions/number-of-islands/index.js)
     * [word-search](matrix/solutions/word-search/index.js)
+    * [word-search-ii](trie/solutions/word-search-ii/index.js)
 * linked-list
   * [append](linked-list/append.MD) - add to the end
   * [insertAt](linked-list/insertAt.MD)
@@ -51,6 +52,8 @@ https://www.bigocheatsheet.com/
 * [doubly-linked-list](linked-list/doubly-linked-list/index.js)
   * [lru-cache](linked-list/doubly-linked-list/solutions/lru-cache/index.js)
 * [trie](trie)
+  * solutions:
+    * [word-search-ii](trie/solutions/word-search-ii/index.js)
 * [heap](heap/README.MD)
   * max-binary-heap
     * [insert](heap/maxBinaryHeapInsert.MD)
