@@ -1,0 +1,40 @@
+// neetcode: https://youtu.be/s9fokUqJ76A
+
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function(n) {
+    // only add open paranthesis if open < n
+    // only add a closing paranthesis if closed < open
+    // valid iff open == closed == n
+    
+    let stack = []
+    let res = []
+    
+    function backtrack(openN, closedN) {
+        if (openN === closedN && openN === n) {
+            res.push(stack.join(''));
+            return;
+        }
+        
+        if (openN < n) {
+            stack.push('(');
+            backtrack(openN + 1, closedN);
+            stack.pop();
+        }
+        
+        if (closedN < openN) {
+            stack.push(')');
+            backtrack(openN, closedN + 1);
+            stack.pop();
+        }
+    }
+    
+    backtrack(0, 0);
+    
+    return res;
+};
+
+console.log(generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
+console.log(generateParenthesis(1)) // ["()"]
