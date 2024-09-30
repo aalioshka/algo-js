@@ -16,7 +16,7 @@ var ladderLength = function (beginWord, endWord, wordList) {
 
     for (const word of wordList) {
         for (let j = 0; j < word.length; j++) {
-            const pattern = word.slice(0, j) + '*' + word.slice(j + 1);
+            const pattern = word.slice(0, j) + '*' + word.slice(j + 1); // slice: selected from start to end (end not included)
             if (!graph[pattern]) {
                 graph[pattern] = [];
             }
