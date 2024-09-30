@@ -37,3 +37,33 @@ var addTwoNumbers = function(l1, l2) {
     
     return dummy.next;
 };
+
+/*
+Example
+
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+
+[2,4,3] -> l1 in reversed order
+[5,6,4] -> l2 in reversed order
+[7,0,8] -> result in reversed oeder
+
+*/
+
+
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}
+
+
+let l1 = new ListNode(2);
+l1.next = new ListNode(4);
+l1.next.next = new ListNode(3);
+
+let l2 = new ListNode(5);
+l2.next = new ListNode(6);
+l2.next.next = new ListNode(4);
+
+console.log(addTwoNumbers(l1, l2))
