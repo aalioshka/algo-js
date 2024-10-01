@@ -33,6 +33,7 @@ var ladderLength = function (beginWord, endWord, wordList) {
     while (queue.length > 0) {
         const size = queue.length;
 
+        // explore level
         for (let i = 0; i < size; i++) {
             const word = queue.shift();
 
