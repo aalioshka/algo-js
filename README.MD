@@ -23,8 +23,9 @@ https://www.bigocheatsheet.com/
 * graph
   * adjacency list
     * [Depth First Search](graph/adjacency-list/depthFirst.MD)
-      * [course schedule](2023-revisit/graph/course-schedule.js) 
-      * [course schedule-ii](2023-revisit/graph/course-schedule-ii.js)
+      * Topological sort
+        * [course schedule](graph/solutions/topological-sort/course-schedule.js)
+        * [course schedule-ii](graph/solutions/topological-sort/course-schedule-ii.js)
       * [Depth First Search Iterative](graph/adjacency-list/depthFirstIterative.MD)
     * [Breadth First Search](graph/adjacency-list/breadthFirst.MD)
       * [cheapest flights within k stops](graph/solutions/breadth-first-search/cheapest-flights-within-k-stops/index.js)

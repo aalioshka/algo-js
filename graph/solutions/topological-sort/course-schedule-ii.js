@@ -1,49 +1,59 @@
+// solution is based on algo-js/graph/solutions/topological-sort/course-schedule.js
+// neetcode: https://youtu.be/Akt3glAwyfY
+// based on https://leetcode.com/problems/course-schedule
+
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
  * @return {number[]}
  */
 var findOrder = function(numCourses, prerequisites) {
-    // https://www.youtube.com/watch?v=eL-KzMXSXXI
-    const seen = {};
-    const seeing = {};
-    const res = [];
-
-    // 1. build graph
-    const adj = {};
-    for (let [course, prereq] of prerequisites) {
-        if(!adj[prereq]) adj[prereq] = [];
-        adj[prereq].push(course);
+    let prereq = {};
+    
+    for(let i = 0; i < numCourses; i++){
+        prereq[i] = [];
     }
 
-    // 2. Do DFS on each course
-    for (let c = 0; c < numCourses; c++) {
-        if (!dfs(c)) {
-            // There is a cycle, this course cannot be finished
-            return [];
+    for (const [crs, pre] of prerequisites) {
+        prereq[crs].push(pre);
+    }
+    
+    // a cource has 3 possible states:
+    // visited -> crs has been added to output
+    // visiting -> crs not added to output, but added to cycle
+    // unvisited -> crs not added to output or cycle
+    
+    let output = []; // new, diff from algo-js/graph/solutions/topological-sort/course-schedule.js
+    
+    let visited = {};
+    let visiting = {};
+    
+    for(let cource = 0; cource < numCourses; cource++) {
+        if(!dfs(cource)) { // we detected a cyrcle
+            return []; // new, diff from algo-js/graph/solutions/topological-sort/course-schedule.js
         }
     }
-    return res.reverse();
+    
+    return output; // new, diff from algo-js/graph/solutions/topological-sort/course-schedule.js
 
-    function dfs(v) {
-        if (seen[v]) return true;
-        if (seeing[v]) return false;
-
-        // Add the course to courses we are seeing during the current search
-        seeing[v] = true;
-        for (let nv of adj[v] || []) {
-            // do search from root till the end through all children
-            if (!dfs(nv)) {
+    function dfs(crs) {
+        if (visiting[crs]) {
+            return false;
+        }
+        
+        if (visited[crs]) {
+            return true;
+        }
+        
+        visiting[crs] = true; // add to the cycle
+        for(let pre of prereq[crs]) {
+            if (!dfs(pre)) {
                 return false;
             }
         }
-
-        // Remove course from courses we are seeing during the current search
-        // As we are done with current search
-        seeing[v] = false;
-        seen[v] = true;
-        res.push(v);
+        visiting[crs] = false; // remove from the cycle
+        visited[crs] = true;
+        output.push(crs); // new, diff from algo-js/graph/solutions/topological-sort/course-schedule.js
         return true;
     }
-
 };

@@ -1,46 +1,55 @@
+// neetcode: https://youtu.be/EgI5nU9etnU
+
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-    // https://www.youtube.com/watch?v=eL-KzMXSXXI
-    const seen = {};
-    const seeing = {};
-
-    // 1. build graph
-    const adj = {};
-    for (let [course, prereq] of prerequisites) {
-        if(!adj[prereq]) adj[prereq] = [];
-        adj[prereq].push(course);
+    let prereq = {};
+    
+    for(let i = 0; i < numCourses; i++){
+        prereq[i] = [];
     }
 
-    // 2. Do DFS on each course
-    for (let c = 0; c < numCourses; c++) {
-        if (!dfs(c)) {
-            // There is a cycle, this course cannot be finished
+    for (const [crs, pre] of prerequisites) {
+        prereq[crs].push(pre);
+    }
+
+    
+    // a cource has 3 possible states:
+    // visited -> crs has been added to output
+    // visiting -> crs not added to output, but added to cycle
+    // unvisited -> crs not added to output or cycle
+
+    let visited = {};
+    let visiting = {};
+    
+    for(let cource = 0; cource < numCourses; cource++) {
+        if(!dfs(cource)) { // we detected a cyrcle
             return false;
         }
     }
+
     return true;
 
-    function dfs(v) {
-        if (seen[v]) return true;
-        if (seeing[v]) return false;
-
-        // Add the course to courses we are seeing during the current search
-        seeing[v] = true;
-
-        for (let nv of adj[v] || []) {
-            // do search from root till the end through all children
-            if (!dfs(nv)) {
+    function dfs(crs) {
+        if (visiting[crs]) {
+            return false;
+        }
+        
+        if (visited[crs]) {
+            return true;
+        }
+        
+        visiting[crs] = true; // add to the cycle
+        for(let pre of prereq[crs]) {
+            if (!dfs(pre)) {
                 return false;
             }
         }
-        // Remove course from courses we are seeing during the current search
-        // As we are done with current search
-        seeing[v] = false;
-        seen[v] = true;
+        visiting[crs] = false; // remove from the cycle
+        visited[crs] = true;
         return true;
     }
-}
+};
