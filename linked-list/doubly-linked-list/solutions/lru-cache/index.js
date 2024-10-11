@@ -1,16 +1,17 @@
 // Leetcode: Approach 1: Doubly Linked List 
 
 /*
-1) Store a key-value pair
-2) Update a key-value pair
-3) Given a key, determine if it exists in the data structure. If it does, return the value. If it doesn't, return -1.
-4) When a new key-value pair is added, create a new linked list node and put it at the back.
-5) When an existing key is updated or fetched, find its associated linked list node. Move it to the back.
-6) When a new key-value pair is added and the size of the data structure exceeds capacity, remove the linked list node at the front.
+neetcode: https://youtu.be/7ABFKPK2hD4
+Time complexity: O(1) for both get and put.
+
+1) add() -> to the end
+2) remove() -> removing reff
+3) get() -> check map if exists -> call remove -> call add
+4) put() -> check map and call remove() if exists ->  add to map and call add() -> if cap exceeded we remove from the Head and from the map
+
 
 dummyHead <-> 1 <-> 2 <-> 3 <-> dummyTail
 */
-
 class Node {
     constructor(key, val) {
         this.key = key;
