@@ -1,27 +1,27 @@
 // Merges two already sorted arrays
 function merge(left, right){
     let results = [];
-    let i = 0;
-    let j = 0;
-    while(i < left.length && j < right.length){
-        if(right[j] > left[i]){
-            results.push(left[i]);
-            i++;
+    let l = 0;
+    let r = 0;
+    while(l < left.length && r < right.length){
+        if(left[l] < right[r]){
+            results.push(left[l]);
+            l++;
         } else { // case if right[j] less or equal
-            results.push(right[j]);
-            j++;
+            results.push(right[r]);
+            r++;
         }
     }
     // as arrays length can be not equal,
     // but we for sure know that left and right are sorted
     // we simply add what's left at the end
-    while(i < left.length) {
-        results.push(left[i]);
-        i++;
+    while(l < left.length) {
+        results.push(left[l]);
+        l++;
     }
-    while(j < right.length) {
-        results.push(right[j]);
-        j++;
+    while(r < right.length) {
+        results.push(right[r]);
+        r++;
     }
     return results;
 }
@@ -30,7 +30,7 @@ function merge(left, right){
 function mergeSort(arr){
     if(arr.length <= 1) return arr;
     let mid = Math.floor(arr.length/2);
-    let left = mergeSort(arr.slice(0,mid));
+    let left = mergeSort(arr.slice(0,mid)); // selected from start to end (end not included)
     let right = mergeSort(arr.slice(mid));
     return merge(left, right);
 }
