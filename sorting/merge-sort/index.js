@@ -7,7 +7,7 @@ function merge(left, right){
         if(left[l] < right[r]){
             results.push(left[l]);
             l++;
-        } else { // case if right[j] less or equal
+        } else { // case if right[r] less or equal
             results.push(right[r]);
             r++;
         }
