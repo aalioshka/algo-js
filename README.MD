@@ -36,6 +36,7 @@ https://www.bigocheatsheet.com/
     * [rotting-oranges](matrix/solutions/rotting-oranges/index.js)
   * Depth First Search
     * [number-of-islands](matrix/solutions/number-of-islands/index.js)
+    * [max-area-of-island](matrix/solutions/max-area-of-island/index.js)
   * solutions:
     * [word-search](matrix/solutions/word-search/index.js)
     * [word-search-ii](trie/solutions/word-search-ii/index.js)
