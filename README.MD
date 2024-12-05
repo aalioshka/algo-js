@@ -32,8 +32,11 @@ https://www.bigocheatsheet.com/
     * [Dijkstra](graph/adjacency-list/dijkstra.js)
   * [adjacency matrix](graph/adjacency-matrix/index.js)
 * matrix
-  * solutions:
+  * Breadth First Search
+    * [rotting-oranges](matrix/solutions/rotting-oranges/index.js)
+  * Depth First Search
     * [number-of-islands](matrix/solutions/number-of-islands/index.js)
+  * solutions:
     * [word-search](matrix/solutions/word-search/index.js)
     * [word-search-ii](trie/solutions/word-search-ii/index.js)
 * linked-list

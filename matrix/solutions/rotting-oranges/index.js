@@ -1,19 +1,4 @@
-// https://leetcode.com/problems/rotting-oranges/discuss/508212/JavaScript-breadth-first-search-adjacency-matrix-simple-iterative-solution
-// 994. Rotting Oranges
-// In a given grid, each cell can have one of three values:
-//
-//     the value 0 representing an empty cell;
-//     the value 1 representing a fresh orange;
-//     the value 2 representing a rotten orange.
-//     Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.
-//
-//     Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.
-//
-//
-//
-// Example 1:
-// Input: [[2,1,1],[1,1,0],[0,1,1]]
-// Output: 4
+
 
 // Example 2:
 //
@@ -32,6 +17,14 @@
 // 1 <= grid.length <= 10
 // 1 <= grid[0].length <= 10
 // grid[i][j] is only 0, 1, or 2.
+// 0 representing an empty cell;
+// 1 representing a fresh orange;
+// 2 representing a rotten orange.
+// Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.
+//
+// Return the minimum number of minutes that must elapse until no cell has a fresh orange. 
+// If this is impossible, return -1 instead.
+//
 
 /**
  * @param {number[][]} grid
@@ -54,7 +47,7 @@ var orangesRotting = function(grid) {
     }
     
     while (queue.length && freshOranges) {
-        let size = queue.length; // we start new depth
+        const size = queue.length; // we start new depth
         
         for(let i = 0; i < size; i++){
             // The shift() method of Array instances removes the first element from an array and returns that removed element. 
@@ -106,3 +99,23 @@ var orangesRotting = function(grid) {
         }
     }
 };
+
+const input1 = [
+    [2,1,1],
+    [1,1,0],
+    [0,1,1]
+];
+
+const input2 = [
+    [2,1,1],
+    [0,1,1],
+    [1,0,1]
+]
+
+const input3 = [
+    [0,2]
+]
+
+console.log(orangesRotting(input1)); // 4
+console.log(orangesRotting(input2)); // -1
+console.log(orangesRotting(input3)); // 0
