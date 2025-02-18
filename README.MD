@@ -34,6 +34,7 @@ https://www.bigocheatsheet.com/
 * matrix
   * Breadth First Search
     * [rotting-oranges](matrix/solutions/rotting-oranges/index.js)
+    * [shortest-path-in-binary-matrix](matrix/solutions/shortest-path-in-binary-matrix.js)
   * Depth First Search
     * [number-of-islands](matrix/solutions/number-of-islands/index.js)
     * [max-area-of-island](matrix/solutions/max-area-of-island/index.js)
