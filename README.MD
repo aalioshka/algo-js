@@ -47,9 +47,7 @@ https://www.bigocheatsheet.com/
   * [removeAt](linked-list/removeAt.MD)
   * solutions:
     * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
-    * merge-k-sorted-lists:
-      * [easy to write O(kN)](linked-list/solutions/merge-k-sorted-lists/index.js)
-      * [optimal O(Nlogk) Min Binary Heap (Priority Queue)](linked-list/solutions/merge-k-sorted-lists/index-heap.js)
+    * [merge-k-sorted-lists](linked-list/solutions/merge-k-sorted-lists.js)
     * [reverse-linked-list](linked-list/solutions/reverse-linked-list/index.js)
     * Two pointers(slow, fast):
       * [linked-list-cycle](linked-list/solutions/linked-list-cycle/index.js)
