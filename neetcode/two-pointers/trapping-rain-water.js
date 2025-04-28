@@ -1,14 +1,14 @@
 // https://neetcode.io/problems/trapping-rain-water
 
+// Two pointers
+// time O(n)
+// space O(1)
+
 /**
  * @param {number[]} height
  * @return {number}
  */
 var trap = function (height) {
-    // Two pointers
-    // time O(n)
-    // space O(1)
-
     if (!height || !height.length) return 0;
 
     let l = 0;
