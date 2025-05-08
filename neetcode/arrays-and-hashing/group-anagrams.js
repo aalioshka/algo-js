@@ -1,7 +1,7 @@
-// Time: O(M * NlogN)
-// Space: O(M * N)
-// Where m is the number of strings and 
-// N is the length of the longest string.
+// N is the number of strings in the input array
+// L is the length of the longest string
+// Time: O(N * L log L)
+// Space: O(N * L)
 
 /**
  * @param {string[]} strs
