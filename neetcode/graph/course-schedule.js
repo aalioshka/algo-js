@@ -1,4 +1,4 @@
-// neetcode: https://neetcode.io/problems/course-schedule
+// based on neetcode: https://neetcode.io/problems/course-schedule
 
 // Time Complexity: O(V + E)
 // V is the number of courses numCourses
@@ -12,44 +12,50 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-    const preMap = {};
-    for (let i = 0; i < numCourses; i++) {
-        preMap[i] = [];
-    }
-    for (const [crs, pre] of prerequisites) {
-        preMap[crs].push(pre);
+    let prereq = {};
+    
+    for(let i = 0; i < numCourses; i++){
+        prereq[i] = [];
     }
 
-    const visiting = {};
+    for (const [crs, pre] of prerequisites) {
+        prereq[crs].push(pre);
+    }
+    
+    // a cource has 3 possible states:
+    // visited -> crs has been added to output
+    // visiting -> crs not added to output, but added to cycle
+    
+    let visited = {};
+    let visiting = {};
+    
+    for(let cource = 0; cource < numCourses; cource++) {
+        if(!dfs(cource)) { // we detected a cyrcle
+            return false;
+        }
+    }
+    
+    return true;
 
     function dfs(crs) {
         if (visiting[crs]) {
-            // Cycle detected
             return false;
         }
-        if (preMap[crs].length === 0) {
-            // Empty, can be finished
+        
+        if (visited[crs]) {
             return true;
         }
-
-        visiting[crs] = true; // adding to visiting for this recursive cycle
-        for (const pre of preMap[crs]) {
+        
+        visiting[crs] = true; // add to the cycle
+        for(let pre of prereq[crs]) {
             if (!dfs(pre)) {
                 return false;
             }
         }
-        visiting[crs] = false; // removing from visiting for this recursive cycle
-        preMap[crs] = []; // set as empty, as we know, we can finish it
+        visiting[crs] = false; // remove from the cycle
+        visited[crs] = true; // memoization, mark visited
         return true;
     }
-
-    for (let c = 0; c < numCourses; c++) {
-        if (!dfs(c)) {
-            return false;
-        }
-    }
-
-    return true;
 };
 
 console.log(canFinish(2, [[1,0]])); // true
