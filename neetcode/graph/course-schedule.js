@@ -1,5 +1,11 @@
 // neetcode: https://neetcode.io/problems/course-schedule
 
+// Time Complexity: O(V + E)
+// V is the number of courses numCourses
+// E is the number of prerequisite pairs in prerequisites
+
+// Space Complexity: O(V + E)
+
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
