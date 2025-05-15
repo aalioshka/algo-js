@@ -11,6 +11,11 @@ Space Complexity:
 * prereq + allPrereq: up to O(N²) in worst case
 * Result array: O(Q)
 Total: O(N² + Q)
+
+WHERE:
+N Stands for: numCourses
+P Stands for: prerequisites.length
+Q Stands for: queries.length
 */
 
 
