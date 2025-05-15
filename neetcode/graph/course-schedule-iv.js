@@ -1,10 +1,18 @@
 // neetcode: https://neetcode.io/solutions/course-schedule-iv
 
-// Time Complexity
-// O(N² + P + Q)
+/*
+Time Complexity:
+* DFS per course: O(N²) in worst case
+* Prerequisites list: O(P)
+* Queries: O(Q)
+Total: O(N² + P + Q)
 
-// Space Compexity
-// O(N² + Q)
+Space Complexity:
+* prereq + allPrereq: up to O(N²) in worst case
+* Result array: O(Q)
+Total: O(N² + Q)
+*/
+
 
 /**
  * @param {number} numCourses
@@ -50,5 +58,4 @@ var checkIfPrerequisite = function(numCourses, prerequisites, queries) {
 const numCourses = 3;
 const prerequisites = [[1,2],[1,0],[2,0]];
 const queries = [[1,0],[1,2]];
-
 console.log(checkIfPrerequisite(numCourses, prerequisites, queries)); // [true,true]
