@@ -16,6 +16,15 @@ WHERE:
 N Stands for: numCourses
 P Stands for: prerequisites.length
 Q Stands for: queries.length
+
+Explaining O(N²) in worst case
+
+* here are N courses.
+* Each course could have up to N-1 prerequisites.
+* That’s up to N * (N-1) edges total → O(N²).
+
+This matches a fully connected graph (dense DAG), 
+where every node has a directed edge to every node that comes after it.
 */
 
 
