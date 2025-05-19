@@ -1,3 +1,14 @@
+// 1) At each level of recursion, you split the array into two halves (arr.slice(...))
+//  — so the recursion tree has log n levels.
+// 2) At each level, you merge all elements once: 
+// O(n) total work to merge.
+// Time Complexity = O(n log n) in all cases
+//
+// 1) Arrays: O(n)
+// 2) Stackstace: O(log n)
+// Space Complexity: O(n)
+
+
 // Merges two already sorted arrays
 function merge(left, right){
     let results = [];
