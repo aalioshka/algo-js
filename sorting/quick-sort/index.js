@@ -1,3 +1,8 @@
+// Time: 
+// AVG:   O(NlogN)
+// Worst: O(N²)
+// Space:
+// O(N)
 function quickSort(nums) {
     if (nums.length < 2) {
         return nums;
