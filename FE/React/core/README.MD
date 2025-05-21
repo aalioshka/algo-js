@@ -17,6 +17,8 @@ See detailed break down [here](1.CORE.MD)
 * Example question:
   * "Walk me through a custom hook you wrote. Why did you build it as a hook instead of a component?"
 
+See detailed break down [here](2.Hooks.MD)
+
 ## 3. Component Architecture
 * Component decomposition
 * Presentational vs container components

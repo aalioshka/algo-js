@@ -7,9 +7,9 @@ export function App() {
   const [count, setCount] = useState(0)
   return (
     <div>
-      <button data-testid="decrement-button" onClick={() => setCount(count - 1)}>-</button>
-      <button data-testid="increment-button" onClick={() => setCount(count + 1)}>+</button>
-      <p>clicked: {count}</p>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <div>Count: {count}</div>
     </div>
   )
 }
@@ -39,9 +39,9 @@ export function App() {
   const [count, setCount] = useState(0)
   return (
     <div>
-      <button data-testid="decrement-button" onClick={() => setCount(count => count - 1)}>-</button>
-      <button data-testid="increment-button" onClick={() => setCount(count => count + 1)}>+</button>
-      <p>clicked: {count}</p>
+      <button onClick={() => setCount(count => count - 1)}>-</button>
+      <button onClick={() => setCount(count => count + 1)}>+</button>
+      <div>Count: {count}</div>
     </div>
   )
 }
@@ -73,9 +73,9 @@ export function App() {
   const increase = useCallback(() => setCount(count => count + 1), [])
   return (
     <div>
-      <button data-testid="decrement-button" onClick={decrease}>-</button>
-      <button data-testid="increment-button" onClick={increase}>+</button>
-      <p>clicked: {count}</p>
+      <button onClick={decrease}>-</button>
+      <button onClick={increase}>+</button>
+      <div>Count: {count}</div>
     </div>
   )
 }
@@ -84,32 +84,24 @@ export function App() {
 
 ```tsx
 import React, { useReducer } from 'react';
+
 const initialState = { count: 0 };
-function reducer(state: {count: number}, action: {type: 'increment' | 'decrement'}) {
+
+function reducer(state, action) {
   switch (action.type) {
-    case 'increment':
-      return { count: state.count + 1 };
-    case 'decrement':
-      return { count: state.count - 1 };
+    case 'increment': return { count: state.count + 1 };
+    case 'decrement': return { count: state.count - 1 };
+    default: return state;
   }
 }
+
 export function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div>
-      <button
-        data-testid="decrement-button"
-        onClick={() => dispatch({ type: 'decrement' })}
-      >
-        -
-      </button>
-      <button
-        data-testid="increment-button"
-        onClick={() => dispatch({ type: 'increment' })}
-      >
-        +
-      </button>
-      <p>clicked: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'decrement' })}> - </button>
+      <button onClick={() => dispatch({ type: 'increment' })}> + </button>
+      <div>Count: {state.count}</div>
     </div>
   );
 }
