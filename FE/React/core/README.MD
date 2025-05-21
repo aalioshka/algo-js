@@ -36,6 +36,8 @@ See detailed break down [here](3.Component-Architecture.MD)
 * Example question:
   * "Why might you choose React Context over Redux in a new project? What trade-offs are you making?"
 
+See detailed break down [here](4.State-Management.MD)
+
 ## 5. Performance Optimization
 * Memoization strategies
 * React rendering behavior (virtual DOM, reconciliation)
