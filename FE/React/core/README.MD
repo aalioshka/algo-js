@@ -45,6 +45,8 @@ See detailed break down [here](4.State-Management.MD)
 * Example question:
   * "Have you ever profiled a slow React app? What tools did you use and how did you improve performance?"
 
+See detailed break down [here](5.Performance-Optimization.MD)
+
 ## 6. Testing React Applications
 * Unit tests (Jest, Testing Library)
 * Testing hooks, mocking APIs, user interactions
