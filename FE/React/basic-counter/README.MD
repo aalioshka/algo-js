@@ -1,7 +1,7 @@
 # ✅ Version 1: Basic useState()
 ## useState() to hold the count
 
-```js
+```tsx
 import React, {useState} from 'react'
 export function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +17,7 @@ export function App() {
 
 ### Problem
 
-```js
+```tsx
 setCount(count + 1);
 setCount(count + 1); // Won’t increment twice correctly!
 ```
@@ -25,7 +25,7 @@ setCount(count + 1); // Won’t increment twice correctly!
 ### Solution
 * use function instead: useState((prevState) => newState)
 
-```js
+```
 setCount(c => c + 1);
 setCount(c => c + 1); // Correctly increments twice
 ```
@@ -33,7 +33,7 @@ setCount(c => c + 1); // Correctly increments twice
 # ✅ Version 2: Functional Update
 * updated code:
 
-```js
+```tsx
 import React, {useState} from 'react'
 export function App() {
   const [count, setCount] = useState(0)
@@ -65,7 +65,7 @@ export function App() {
 # ✅ Version 3: useCallback()
 
 * Updated code
-```js
+```tsx
 import React, {useState, useCallback} from 'react'
 export function App() {
   const [count, setCount] = useState(0)
@@ -82,7 +82,7 @@ export function App() {
 ```
 # ✅ Version 4: useReducer() – Structured State Logic
 
-```js
+```tsx
 import React, { useReducer } from 'react';
 const initialState = { count: 0 };
 function reducer(state: {count: number}, action: {type: 'increment' | 'decrement'}) {

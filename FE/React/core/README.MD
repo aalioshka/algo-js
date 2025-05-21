@@ -8,6 +8,8 @@ In a Technical Expertise Interview with a React.js expert, you can expect the co
 * Example question:
   * "When would you use useLayoutEffect over useEffect? Can you give a concrete use case?"
 
+See detailed break down [here](1.CORE.MD)
+
 ## 2. Hooks Mastery
 * Custom hooks (abstraction, reusability)
 * Complex state logic with useReducer
