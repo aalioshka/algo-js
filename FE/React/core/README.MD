@@ -27,6 +27,8 @@ See detailed break down [here](2.Hooks.MD)
 * Example question:
   * "How do you structure components in a large React codebase to make it scalable and maintainable?"
 
+See detailed break down [here](3.Component-Architecture.MD)
+
 ## 4. State Management (local and global)
 * Context API vs Redux vs Recoil/Zustand
 * Prop drilling and how to avoid it
