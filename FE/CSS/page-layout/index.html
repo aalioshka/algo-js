@@ -1,0 +1,58 @@
+<!DOCTYPE html><html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+            }
+            .main {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            .header {
+                background-color: red;
+                height: 15vh;
+            }
+            .footer {
+                background-color: gray;
+                height: 15vh;
+            }
+            .header, footer {
+                flex-shrink: 0; /* "Header and Footer: keep your height; don’t get squeezed." */
+            }
+            .header, .footer, .nav, .content, .sidebar {
+                display: flex;
+                justify-content: center; /* horizontal centering */
+                align-items: center; /* vertical centering */
+            }
+            .columns {
+                display: flex;
+                flex-direction: row;
+                flex: 1 /* height: 70vh; : "Hey .columns, you go ahead and take the whole remaining 70vh — fill that vertical space." */
+            }
+            .nav {
+                background-color: blue;
+                flex: 0 0 15%; /* width: 15%; */
+            }
+            .content {
+                background-color: green;
+                flex: 1; /* width: 70%; */
+            }
+            .sidebar {
+                background-color: yellow;
+                flex: 0 0 15%; /* width: 15%; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">Header</div>
+            <div class="columns">
+                <div class="nav">Navigation</div>
+                <div class="content">Main</div>
+                <div class="sidebar">Sidebar</div>
+            </div>
+            <div class="footer">Footer</div>
+        </div>
+    </body>
+</html>
