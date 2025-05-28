@@ -112,4 +112,42 @@ export function App() {
 *"I’d use useState with functional updates for simple counters, but once I’m passing down callbacks or optimizing rendering behavior, I’ll memoize them with useCallback. If the state logic becomes more complex—say, tracking multiple values or needing a clear state transition map—I’d switch to useReducer, especially if the team is used to Redux-like patterns."*
 
 
+# ✅ `useCounter` hook that manages a counter state
+
+#### Implement a `useCounter` hook that manages a counter state, with some additional convenience utility methods.
+
+```tsx
+export default function Component() {
+  const { count, increment, decrement, reset, setCount } = useCounter();
+
+  return (
+    <div>
+      <p>Counter: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+
+// ...
+
+import { useState } from 'react';
+
+export default function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  return {
+    count,
+    increment: () => setCount((x) => x + 1),
+    decrement: () => setCount((x) => x - 1),
+    reset: () => setCount(initialValue),
+    setCount,
+  };
+}
+
+```
+
+
+
 
