@@ -112,7 +112,7 @@ export function App() {
 *"I’d use useState with functional updates for simple counters, but once I’m passing down callbacks or optimizing rendering behavior, I’ll memoize them with useCallback. If the state logic becomes more complex—say, tracking multiple values or needing a clear state transition map—I’d switch to useReducer, especially if the team is used to Redux-like patterns."*
 
 
-# ✅ `useCounter` hook that manages a counter state
+# Version 5: ✅ `useCounter` hook that manages a counter state
 
 #### Implement a `useCounter` hook that manages a counter state, with some additional convenience utility methods.
 
