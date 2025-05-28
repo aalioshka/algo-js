@@ -61,6 +61,8 @@ See detailed break down [here](5.Performance-Optimization.MD)
 * Example question:
   * "How would you type a useForm custom hook that handles multiple form fields dynamically?"
 
+See detailed break down [here](7.React-TypeScript.MD)
+
 ## 8. Code Review and Collaboration Skills
 * Evaluating code quality and scalability
 * Mentoring juniors on React best practices
