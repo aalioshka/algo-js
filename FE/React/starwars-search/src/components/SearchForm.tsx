@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextField, Box } from '@mui/material';
 
 type Props = {
-  onSearch: (query: string) => void;
+  input: string;
+  onChange: (newInput: string) => void;
 };
 
-export const SearchForm: React.FC<Props> = ({ onSearch }) => {
-  const [input, setInput] = useState('Rick');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(input.trim());
-  };
-
+export const SearchForm: React.FC<Props> = ({ input, onChange }) => {
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ mb: 2 }}>
+    <Box sx={{ mb: 2 }}>
       <TextField
         fullWidth
-        label="Search Star Wars characters"
+        label="Search Rick and Morty characters"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         variant="outlined"
       />
     </Box>

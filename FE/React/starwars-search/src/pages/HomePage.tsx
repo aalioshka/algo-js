@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { SearchForm } from '../components/SearchForm';
-import { usePeopleSearch } from '../hooks/usePeopleSearch';
 import { CharacterCard } from '../components/CharacterCard';
+import { useCharacterSearch } from '../hooks/useCharacterSearch';
+import { useDebouncedValue } from '../hooks/useDebouncedValue';
 import { Container, CircularProgress, Typography, Stack } from '@mui/material';
 
 export const HomePage: React.FC = () => {
-  const [query, setQuery] = useState('rick');
-  const { data, isLoading, isError } = usePeopleSearch(query);
+  const [input, setInput] = useState('');
+  const debouncedQuery = useDebouncedValue(input, 500);
+  const { data, isLoading, isError } = useCharacterSearch(debouncedQuery);
 
   return (
     <Container maxWidth="sm" sx={{ py: 4 }}>
-      <SearchForm onSearch={setQuery} />
+      <SearchForm input={input} onChange={setInput} />
 
       {isLoading && <CircularProgress />}
       {isError && <Typography color="error">Something went wrong.</Typography>}
