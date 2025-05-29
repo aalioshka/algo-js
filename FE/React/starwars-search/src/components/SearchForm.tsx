@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { TextField, Box, Button } from '@mui/material';
+import { TextField, Box } from '@mui/material';
 
 type Props = {
   onSearch: (query: string) => void;
 };
 
 export const SearchForm: React.FC<Props> = ({ onSearch }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState('Rick');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

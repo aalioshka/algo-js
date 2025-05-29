@@ -5,7 +5,7 @@ import { CharacterCard } from '../components/CharacterCard';
 import { Container, CircularProgress, Typography, Stack } from '@mui/material';
 
 export const HomePage: React.FC = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('rick');
   const { data, isLoading, isError } = usePeopleSearch(query);
 
   return (
@@ -16,12 +16,13 @@ export const HomePage: React.FC = () => {
       {isError && <Typography color="error">Something went wrong.</Typography>}
 
       <Stack spacing={2} mt={2}>
-        {data?.results?.map((person: any) => (
+        {data?.results?.map((character: any) => (
           <CharacterCard
-            key={person.url}
-            name={person.name}
-            birth_year={person.birth_year}
-            gender={person.gender}
+            key={character.id}
+            name={character.name}
+            species={character.species}
+            status={character.status}
+            image={character.image}
           />
         ))}
       </Stack>
