@@ -45,8 +45,8 @@ https://www.bigocheatsheet.com/
   * [insertAt](linked-list/insertAt.MD)
   * [removeAt](linked-list/removeAt.MD)
   * solutions:
-    * [merge-two-sorted-lists](linked-list/solutions/merge-two-sorted-lists/index.js)
-    * [merge-k-sorted-lists](linked-list/solutions/merge-k-sorted-lists.js)
+    * [merge-two-sorted-lists](neetcode/linked-list/merge-two-sorted-lists.js)
+    * [merge-k-sorted-lists](neetcode/linked-list/merge-k-sorted-lists.js)
     * [reverse-linked-list](linked-list/solutions/reverse-linked-list/index.js)
     * Two pointers(slow, fast):
       * [linked-list-cycle](linked-list/solutions/linked-list-cycle/index.js)

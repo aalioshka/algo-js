@@ -10,7 +10,7 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
-var mergeTwoLists = function(list1, list2) {
+export var mergeTwoLists = function(list1, list2) {
     let dummyHead = {
         val: -1,
         next: null
