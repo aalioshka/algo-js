@@ -1,5 +1,4 @@
 import { Box, Tooltip, Typography } from '@mui/material';
-import { yellow } from '@mui/material/colors';
 
 const data = [
   { label: 'Jan', value: 40 },
@@ -47,7 +46,6 @@ const BarChartMui = () => {
                   height: `${barHeight}%`,
                   backgroundColor: 'primary.main',
                   borderRadius: '6px 6px 0 0',
-                  transition: 'height 0.4s ease',
                   cursor: 'pointer',
                 }}
               />
