@@ -1,3 +1,14 @@
+/*
+n = number of nodes in root
+m = number of nodes in subRoot
+
+Time Complexity:
+O(n × m)
+
+Space Complexity:
+O(n + m) (recursion stack)
+*/
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {

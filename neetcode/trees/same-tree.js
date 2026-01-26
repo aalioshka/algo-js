@@ -1,3 +1,14 @@
+/*
+n is the number of nodes in the tree
+h is the height of the tree
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(h)
+*/
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
