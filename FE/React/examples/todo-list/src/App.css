@@ -1,0 +1,21 @@
+.add-form {
+  display: flex;
+  gap:8px;
+}
+
+.todo-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;                   
+    padding: 4px 8px;           
+}
+
+.todo-item {
+    width: 100px;
+}
+
+.clear-btn {
+  flex-shrink: 0;            /* button keeps its size */
+  width: 30px;               /* fixed width aligns all buttons vertically */
+  text-align: center;
+}
