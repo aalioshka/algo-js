@@ -1,18 +1,3 @@
-# UI
-
-![DEMO](DEMO.png)
-
-# Code
-
-```tsx
-// App.jsx
-import Accordion from './Accordion';
-
-export default function App() {
-  return <Accordion />;
-}
-
-// Accordion.jsx
 import { useState } from 'react';
 
 const accordionData = [
@@ -34,19 +19,20 @@ const accordionData = [
 ];
 
 export default function Accordion() {
-  const [openSections, setOpenSections] = useState({});
+  const [openSections, setOpenSections] = useState(() => new Set());
 
-  const toggleSection = (index) => {
-    setOpenSections((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+const toggleSection = (index) => {
+    setOpenSections((prev) => {
+      const next = new Set(prev);
+      next.has(index) ? next.delete(index) : next.add(index);
+      return next;
+    });
   };
 
   return (
     <div role="presentation" className="accordion">
       {accordionData.map((item, index) => {
-        const isOpen = !!openSections[index];
+        const isOpen = openSections.has(index);
         const contentId = `accordion-content-${index}`;
         const headerId = `accordion-header-${index}`;
 
@@ -68,7 +54,6 @@ export default function Accordion() {
                     display: 'inline-block',
                     marginLeft: '0.5rem',
                     transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                    transition: 'transform 0.2s ease',
                   }}
                 >
                   ▶
@@ -92,5 +77,3 @@ export default function Accordion() {
     </div>
   );
 }
-
-```
