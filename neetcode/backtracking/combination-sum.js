@@ -5,6 +5,16 @@
 Input: candidates = [2,3,6,7], target = 7
 Output: [[2,2,3],[7]]
 
+n = candidates.length
+T = target
+m = min(candidates)
+
+Time Complexity:
+Exponential, approximately O(2^(target / min(candidates)))
+
+Space Complexity:
+O(target / min(candidates)) for recursion stack and current combination (excluding output)
+
 */
 
 /**
