@@ -15,8 +15,13 @@ k = number of lists
 
 1. Not optimal - easy to write
 
-Time: O(k log k * n)
-Space: O(1) (or O(n) for recursion)
+divide & conquer
+
+Time: O(N * log K)
+Space: O(1)
+
+K = number of lists
+N = total number of nodes across all lists
 
 2. Optimal
 
@@ -24,6 +29,7 @@ Time: O(N log k)
 Space: O(k)
 
 */
+
 
 /**
  * @param {ListNode[]} lists
@@ -34,38 +40,44 @@ var mergeKLists = function(lists) {
         return null;
     }
 
-    // do loop till we merge all lists into one
+    
     while (lists.length > 1) {
-        let a = lists.pop(); // remove last list form lists array
-        let b = lists.pop(); // remove another last list form lists array
+        let mergedLists = [];
 
-        const c = mergeTwoLists(a, b); // get merged sorted list and put it back to lists array
-        lists.push(c);
+        for (let i = 0; i < lists.length; i += 2) {
+            mergedLists.push(mergeTwoLists(lists[i], lists[i + 1] || null));
+        }
+
+        lists = mergedLists;
     }
     return lists[0];
 };
 
-function mergeTwoLists(l1, l2) {
+var mergeTwoLists = function(list1, list2) {
     let dummyHead = {
         val: -1,
         next: null
     }
-
-    let current = dummyHead
-
-    while(l1 && l2){
-        if(l1.val < l2.val){
-            current.next = l1;
-            l1 = l1.next;
+    
+    let current = dummyHead;
+    
+    while(list1 && list2) {
+        // 1) while both not null
+        if(list1.val < list2.val) {
+            current.next = list1;
+            list1 = list1.next;
         } else {
-            current.next = l2;
-            l2 = l2.next;
+            current.next = list2;
+            list2 = list2.next;
         }
+        
+        // move current
         current = current.next
     }
-
-    current.next = l1 || l2;
-
+    
+    // 2) one of the list might be not null
+    current.next = list1 || list2;
+    
     return dummyHead.next;
 };
 

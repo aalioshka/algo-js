@@ -1,43 +1,12 @@
-import { mergeTwoLists } from './merge-two-sorted-lists';
-
 /*
 
-K - number of linked lists
-N - total number of nodes across all lists
-
-a) Not optimal - easy to write
-
-Time: O(N * K) (worst case)
-Space: O(1) - The output list itself uses O(n) space, but that’s required and not counted as extra space
-
-*/
-
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-var mergeKListsA = function(lists) {
-    if (lists.length === 0 ) {
-        return null;
-    }
-
-    // do loop till we merge all lists into one
-    while (lists.length > 1) {
-        let a = lists.pop(); // remove last list form lists array
-        let b = lists.pop(); // remove another last list form lists array
-
-        const c = mergeTwoLists(a, b); // get merged sorted list and put it back to lists array
-        lists.push(c);
-    }
-    return lists[0];
-};
-
-/*
-
-b) divide & conquer
+divide & conquer
 
 Time: O(N * log K)
-Space: O(1) - same as a)
+Space: O(1)
+
+K = number of lists
+N = total number of nodes across all lists
 
  */
 
@@ -55,13 +24,38 @@ var mergeKLists = function(lists) {
         let mergedLists = [];
 
         for (let i = 0; i < lists.length; i += 2) {
-            let l1 = lists[i];
-            let l2 = (i + 1 < lists.length) ? lists[i + 1] : null;
-
-            mergedLists.push(mergeTwoLists(l1, l2));
+            mergedLists.push(mergeTwoLists(lists[i], lists[i + 1] || null));
         }
 
         lists = mergedLists;
     }
     return lists[0];
+};
+
+var mergeTwoLists = function(list1, list2) {
+    let dummyHead = {
+        val: -1,
+        next: null
+    }
+    
+    let current = dummyHead;
+    
+    while(list1 && list2) {
+        // 1) while both not null
+        if(list1.val < list2.val) {
+            current.next = list1;
+            list1 = list1.next;
+        } else {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        
+        // move current
+        current = current.next
+    }
+    
+    // 2) one of the list might be not null
+    current.next = list1 || list2;
+    
+    return dummyHead.next;
 };
