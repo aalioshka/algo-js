@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import type { ChangeEvent } from "react";
 
 // Define a Todo type
@@ -12,7 +12,7 @@ export function TodoApp() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [text, setText] = useState<string>("");
 
-  const addTodo = useCallback(() => {
+  const addTodo = () => {
     if (!text.trim()) return;
 
     setTodos((prev) => [
@@ -20,19 +20,19 @@ export function TodoApp() {
       { id: Date.now(), text, completed: false }
     ]);
     setText("");
-  }, [text]);
+  };
 
-  const toggleTodo = useCallback((id: number) => {
+  const toggleTodo = (id: number) => {
     setTodos((prev) =>
       prev.map((t) =>
         t.id === id ? { ...t, completed: !t.completed } : t
       )
     );
-  }, []);
+  };
 
-  const removeTodo = useCallback((id: number) => {
+  const removeTodo = (id: number) => {
     setTodos((prev) => prev.filter((t) => t.id !== id));
-  }, []);
+  };
 
   const completedCount = todos.filter((t) => t.completed).length;
 
@@ -41,7 +41,7 @@ export function TodoApp() {
   };
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
       <div className="add-form">
         <input
           value={text}
