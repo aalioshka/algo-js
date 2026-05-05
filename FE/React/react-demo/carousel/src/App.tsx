@@ -1,4 +1,3 @@
-import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUnsplashImages, UnsplashImage } from "./api/unsplash";
 import { ImageCarousel } from "./components/ImageCarousel";
@@ -15,8 +14,8 @@ export default function App() {
   }, []);
 
   return (
-    <Box textAlign="center">
-      {loading ? <Typography>Loading images...</Typography> : <ImageCarousel images={images} />}
-    </Box>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100VH" }}>
+      {loading ? <div>Loading images...</div> : <ImageCarousel images={images} />}
+    </div>
   );
 }

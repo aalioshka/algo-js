@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { UnsplashImage } from "../api/unsplash";
-import { Box, Button } from "@mui/material";
 
 type Props = {
   images: UnsplashImage[];
@@ -25,23 +24,16 @@ export const ImageCarousel = ({ images }: Props) => {
   };
 
   return (
-    <Box textAlign="center">
-      <Box
-        component="img"
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <img
         src={images[index].url}
         alt={images[index].alt}
-        sx={{
-          maxHeight: 400,
-          width: "60%",
-          borderRadius: 2,
-          boxShadow: 3,
-          objectFit: "cover",
-        }}
+        style={{ height: "400px" }}
       />
-      <Box mt={2} display="flex" justifyContent="center" gap={2}>
-        <Button variant="contained" onClick={prev}>Prev</Button>
-        <Button variant="contained" onClick={next}>Next</Button>
-      </Box>
-    </Box>
+      <div style={{ marginTop: "12px", display: "flex", justifyContent: "center", gap: "12px" }}>
+        <button style={{ backgroundColor: "blue", color: "white", cursor: "pointer", fontSize: "14px", padding: "8px 16px" }} onClick={prev}>Prev</button>
+        <button style={{ backgroundColor: "blue", color: "white", cursor: "pointer", fontSize: "14px", padding: "8px 16px" }} onClick={next}>Next</button>
+      </div>
+    </div>
   );
 };
