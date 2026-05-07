@@ -8,7 +8,7 @@ type Todo = {
   completed: boolean;
 };
 
-export function TodoApp() {
+export function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [text, setText] = useState<string>("");
 

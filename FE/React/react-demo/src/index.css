@@ -1,3 +1,27 @@
+
+.tab-list {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-list button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.tab-list button.active {
+  background: black;
+  color: white;
+}
+
+.tab-panel {
+  padding: 16px;
+}
+
+/* TODO list */
 .add-form {
   display: flex;
   gap:8px;

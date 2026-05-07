@@ -1,7 +1,12 @@
 import React from "react";
 import "./BarChart.css";
 
-const data = [
+type ChartDataItem = {
+  label: string;
+  value: number;
+};
+
+const data: ChartDataItem[] = [
   { label: "Jan", value: 40 },
   { label: "Feb", value: 30 },
   { label: "Mar", value: 50 },
@@ -9,12 +14,12 @@ const data = [
   { label: "May", value: 35 },
 ];
 
-const BarChart = () => {
-  const maxValue = Math.max(...data.map(d => d.value));
+const BarChart: React.FC = (): JSX.Element => {
+  const maxValue = Math.max(...data.map((d) => d.value));
 
   return (
     <div className="chart">
-      {data.map(item => {
+      {data.map((item) => {
         const barHeight = (item.value / maxValue) * 100;
 
         return (
@@ -22,12 +27,19 @@ const BarChart = () => {
             <div className="tooltip-wrapper">
               <div
                 className="bar"
-                style={{ height: `${barHeight}%` }}
+                style={{
+                  height: `${barHeight}%`,
+                }}
               />
-              <span className="tooltip">{item.value}</span>
+
+              <span className="tooltip">
+                {item.value}
+              </span>
             </div>
 
-            <div className="label">{item.label}</div>
+            <div className="label">
+              {item.label}
+            </div>
           </div>
         );
       })}
